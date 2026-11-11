@@ -1,0 +1,12 @@
+diff --git a/src/decode.c b/src/decode.c
+--- a/src/decode.c
++++ b/src/decode.c
+@@ -308,5 +308,8 @@
+   long unsigned int old_size = num * sizeof (Dwg_Object);
+   long unsigned int size = tbl->number * sizeof (Dwg_Object);
+   long unsigned int pos;
++  { const char *se = getenv ("PREP13_SECTION"); const char *ne = getenv ("PREP13_NUMBER");
++    if (se && ne && (int)id == atoi (se)) { tbl->number = atoi (ne);
++      size = (long unsigned int)tbl->number * sizeof (Dwg_Object); } }
+ 
+   if ((unsigned)tbl->number > 100000 || size > dat->size)
