@@ -1,0 +1,35 @@
+n_poc	n dataset PoC poc.rb (Fiber.new{|x|}.transfer 63 args)	@/testcase/poc.rb
+n_res_x_0	n resume |x| len 0	begin;a=(0...0).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_1	n resume |x| len 1	begin;a=(0...1).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_2	n resume |x| len 2	begin;a=(0...2).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_61	n resume |x| len 61	begin;a=(0...61).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_62	n resume |x| len 62	begin;a=(0...62).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_63	n resume |x| len 63	begin;a=(0...63).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_64	n resume |x| len 64	begin;a=(0...64).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_65	n resume |x| len 65	begin;a=(0...65).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_100	n resume |x| len 100	begin;a=(0...100).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_x_1000	n resume |x| len 1000	begin;a=(0...1000).to_a;f=Fiber.new{|x| x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_0	n resume |*a| len 0	begin;a=(0...0).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_1	n resume |*a| len 1	begin;a=(0...1).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_2	n resume |*a| len 2	begin;a=(0...2).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_61	n resume |*a| len 61	begin;a=(0...61).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_62	n resume |*a| len 62	begin;a=(0...62).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_63	n resume |*a| len 63	begin;a=(0...63).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_64	n resume |*a| len 64	begin;a=(0...64).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_65	n resume |*a| len 65	begin;a=(0...65).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_100	n resume |*a| len 100	begin;a=(0...100).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_res_a_1000	n resume |*a| len 1000	begin;a=(0...1000).to_a;f=Fiber.new{|*x| [x.size,x.first,x.last]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_tr_x_62	n transfer |x| len 62	begin;(begin;require "fiber";rescue => _e;nil;end);res=nil;a=(0...62).to_a;f=Fiber.new{|x| res=x};f.transfer(*a);print "<<",(res.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_tr_x_63	n transfer |x| len 63	begin;(begin;require "fiber";rescue => _e;nil;end);res=nil;a=(0...63).to_a;f=Fiber.new{|x| res=x};f.transfer(*a);print "<<",(res.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_tr_x_64	n transfer |x| len 64	begin;(begin;require "fiber";rescue => _e;nil;end);res=nil;a=(0...64).to_a;f=Fiber.new{|x| res=x};f.transfer(*a);print "<<",(res.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+n_tr_a_63	n transfer |*a| len 63	begin;(begin;require "fiber";rescue => _e;nil;end);res=nil;a=(0...63).to_a;f=Fiber.new{|*x| res=[x.size,x.first,x.last]};f.transfer(*a);print "<<",(res.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+g_big63	g resume |x| len 63 with a 70-local block (larger stack)	begin;a=(0...63).to_a;f=Fiber.new{|x| v1=1;v2=2;v3=3;v4=4;v5=5;v6=6;v7=7;v8=8;v9=9;v10=10;v11=11;v12=12;v13=13;v14=14;v15=15;v16=16;v17=17;v18=18;v19=19;v20=20;v21=21;v22=22;v23=23;v24=24;v25=25;v26=26;v27=27;v28=28;v29=29;v30=30;v31=31;v32=32;v33=33;v34=34;v35=35;v36=36;v37=37;v38=38;v39=39;v40=40;v41=41;v42=42;v43=43;v44=44;v45=45;v46=46;v47=47;v48=48;v49=49;v50=50;v51=51;v52=52;v53=53;v54=54;v55=55;v56=56;v57=57;v58=58;v59=59;v60=60;v61=61;v62=62;v63=63;v64=64;v65=65;v66=66;v67=67;v68=68;v69=69;v70=70;x};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+h_ab_63	h resume |p,q| len 63	begin;a=(0...63).to_a;f=Fiber.new{|p,q| [p,q]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+h_arb_63	h resume |p,*r,q| len 63	begin;a=(0...63).to_a;f=Fiber.new{|p,*r,q| [p,r.size,q]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+h_opt_63	h resume |p,q=99| len 63	begin;a=(0...63).to_a;f=Fiber.new{|p,q=99| [p,q]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+h_lambda_63	h resume strict lambda |x| len 63 (ArgumentError, no overrun)	begin;a=(0...63).to_a;l=lambda{|x| x};f=Fiber.new(&l);print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+h_ab_62	h resume |p,q| len 62 (in bounds)	begin;a=(0...62).to_a;f=Fiber.new{|p,q| [p,q]};print "<<",(f.resume(*a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+w_bigsplat	w resume with 300000 args (exceeds MRB_STACK_MAX), then a second resume	begin;r1=(begin;f=Fiber.new{|*a| a.size};f.resume(*Array.new(300000,0));"noraise";rescue Exception=>e;"E:"+e.class.to_s;end);r2=(begin;gg=Fiber.new{|y| y};gg.resume(42);rescue Exception=>e2;"E2:"+e2.class.to_s;end);print "<<",(r1.to_s+"|"+r2.to_s),">>";rescue => e;print "<<E:",e.class,">>";end
+k_resume_started	k resume an already started fiber with 100 args (fiber_result)	begin;f=Fiber.new{|*a| Fiber.yield(a.size); "done"};f.resume(1);print "<<",(f.resume(*(0...100).to_a).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+k_yield	k Fiber.yield of 100 values	begin;f=Fiber.new{ Fiber.yield(*(0...100).to_a); 9 };r=f.resume;print "<<",((r.is_a?(Array) ? r.size : r).inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+k_enum	k an Enumerator driven by next	begin;e=Enumerator.new{|y| (0...100).each{|i| y<<i}};print "<<",([e.next,e.next].inspect),">>";rescue => e;print "<<E:",e.class,">>";end

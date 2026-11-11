@@ -1,0 +1,35 @@
+n_poc	*
+n_res_x_0	nil
+n_res_x_1	0
+n_res_x_2	0
+n_res_x_61	0
+n_res_x_62	0
+n_res_x_63	0
+n_res_x_64	0
+n_res_x_65	0
+n_res_x_100	0
+n_res_x_1000	0
+n_res_a_0	[0, nil, nil]
+n_res_a_1	[1, 0, 0]
+n_res_a_2	[2, 0, 1]
+n_res_a_61	[61, 0, 60]
+n_res_a_62	[62, 0, 61]
+n_res_a_63	[63, 0, 62]
+n_res_a_64	[64, 0, 63]
+n_res_a_65	[65, 0, 64]
+n_res_a_100	[100, 0, 99]
+n_res_a_1000	[1000, 0, 999]
+n_tr_x_62	0
+n_tr_x_63	0
+n_tr_x_64	0
+n_tr_a_63	[63, 0, 62]
+g_big63	0
+h_ab_63	[0, 1]
+h_arb_63	[0, 61, 62]
+h_opt_63	[0, 1]
+h_lambda_63	E:ArgumentError
+h_ab_62	[0, 1]
+w_bigsplat	E:SystemStackError|42
+k_resume_started	"done"
+k_yield	100
+k_enum	[0, 1]
