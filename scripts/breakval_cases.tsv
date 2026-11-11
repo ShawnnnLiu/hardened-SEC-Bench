@@ -1,0 +1,31 @@
+c1_strtimes	c1	begin;r=Class.new{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c1_strcat	c1	begin;r=Class.new{break "a"+"bc"};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c1_ary	c1	begin;r=Class.new{break [1,2,3]};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c1_hash	c1	begin;r=Class.new{break {a: 1}};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c1_obj	c1	begin;r=Class.new{break Object.new};print "<<",(r.class),">>";rescue => e;print "<<E:",e.class,">>";end
+c1_range	c1	begin;r=Class.new{break (1..7)};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c2_gcstart	c2	begin;GC.start;r=Class.new{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c2_iratio	c2	begin;begin;GC.interval_ratio=1;rescue;end;r=Class.new{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c2_sratio	c2	begin;begin;GC.step_ratio=200;rescue;end;r=Class.new{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c2_allocloop	c2	begin;r=Class.new{i=0;while i<3000;("y"*8);i+=1;end;break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c2_allocbig	c2	begin;a=[];2000.times{a<<("z"*16)};r=Class.new{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c3_module_new	c3	begin;r=Module.new{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c3_instance_exec	c3	begin;r=Object.new.instance_exec{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c3_instance_eval	c3	begin;r=Object.new.instance_eval{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c3_class_eval	c3	begin;r=Class.new.class_eval{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c3_module_exec	c3	begin;r=Class.new.module_exec{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c3_objspace	c3	begin;r=ObjectSpace.each_object{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c4_outerlocal	c4	begin;s="x"*7;r=Class.new{break s};print "<<",([r,s].inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c4_int	c4	begin;r=Class.new{break 42};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c4_nil	c4	begin;r=Class.new{break nil};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c4_true	c4	begin;r=Class.new{break true};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c4_sym	c4	begin;r=Class.new{break :foo};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c5_rubymethod	c5	begin;def m;yield;end;r=m{break "x"*7};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c5_next	c5	begin;r=Class.new{next "x"*7};print "<<",(r.class),">>";rescue => e;print "<<E:",e.class,">>";end
+c5_normalret	c5	begin;r=Class.new{"x"*7};print "<<",(r.class),">>";rescue => e;print "<<E:",e.class,">>";end
+c5_procreturn	c5	begin;def mm;Class.new{return "x"*7};end;r=mm;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c5_ensure	c5	begin;r=Class.new{begin;break "x"*7;ensure;nil;end};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c5_nestc	c5	begin;r=Class.new{break([].instance_exec{"x"*7})};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c6_imm	c6	begin;r=Class.new{break 1};print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c6_plain	c6	begin;r=Class.new{1+1};print "<<",(r.class),">>";rescue => e;print "<<E:",e.class,">>";end
+poc	poc	@/testcase/poc.rb

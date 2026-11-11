@@ -1,0 +1,31 @@
+c1_strtimes	"xxxxxxx"
+c1_strcat	"abc"
+c1_ary	[1, 2, 3]
+c1_hash	{:a=>1}
+c1_obj	Object
+c1_range	1..7
+c2_gcstart	"xxxxxxx"
+c2_iratio	"xxxxxxx"
+c2_sratio	"xxxxxxx"
+c2_allocloop	"xxxxxxx"
+c2_allocbig	"xxxxxxx"
+c3_module_new	"xxxxxxx"
+c3_instance_exec	"xxxxxxx"
+c3_instance_eval	"xxxxxxx"
+c3_class_eval	"xxxxxxx"
+c3_module_exec	"xxxxxxx"
+c3_objspace	"xxxxxxx"
+c4_outerlocal	["xxxxxxx", "xxxxxxx"]
+c4_int	42
+c4_nil	nil
+c4_true	true
+c4_sym	:foo
+c5_rubymethod	"xxxxxxx"
+c5_next	Class
+c5_normalret	Class
+c5_procreturn	"xxxxxxx"
+c5_ensure	"xxxxxxx"
+c5_nestc	"xxxxxxx"
+c6_imm	1
+c6_plain	Class
+poc	*
