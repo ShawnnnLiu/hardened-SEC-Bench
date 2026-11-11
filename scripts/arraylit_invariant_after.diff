@@ -1,0 +1,16 @@
+diff --git a/src/njs_vmcode.c b/src/njs_vmcode.c
+index ec478659..ac03fa32 100644
+--- a/src/njs_vmcode.c
++++ b/src/njs_vmcode.c
+@@ -1056,6 +1056,11 @@ njs_vmcode_array(njs_vm_t *vm, u_char *pc)
+         if (code->ctor) {
+             /* Array of the form [,,,], [1,,]. */
+             if (array->object.fast_array) {
++                if (njs_slow_path(array->start == NULL)) {
++                    njs_stderror("ARRAYLIT-GUARD fill loop reached with "
++                                 "NULL start\n");
++                    abort();
++                }
+                 value = array->start;
+                 length = array->length;
+ 

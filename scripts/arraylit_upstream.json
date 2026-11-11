@@ -1,0 +1,23 @@
+{
+  "cve": "CVE-2022-28049",
+  "fix": "f65981b0b8fcf02d69a40bc934803c25c9f607ab",
+  "base": "ad48705bf1f04b4221a5f5b07715ac48b3160d53",
+  "since": "2022-01-01",
+  "files": ["src/njs_vmcode.c", "src/njs_array.c", "src/njs_generator.c", "src/njs_parser.c"],
+  "commits": ["f65981b0b8fcf02d69a40bc934803c25c9f607ab", "3557c57ddef00b286f2147a21bc02c92135e7a02",
+              "019bfd90fcf25490b6522f0ce6bf415892f41646"],
+  "issues": [473],
+  "functions": [
+    {"name": "njs_vmcode_array", "file": "src/njs_vmcode.c",
+     "checks": {"fast_array_guard": "if \\(array->object.fast_array\\)", "flat_alloc": "njs_array_alloc\\(vm, code->flat", "zero_alloc": "njs_array_alloc\\(vm, 0,"}},
+    {"name": "njs_vmcode_property_init", "file": "src/njs_vmcode.c",
+     "checks": {"slow_array_branch": "!array->object.fast_array"}},
+    {"name": "njs_array_alloc", "file": "src/njs_array.c",
+     "checks": {"large_object_slow": "NJS_ARRAY_LARGE_OBJECT_LENGTH", "fast_array_flag": "fast_array = \\(array->data != NULL\\)"}}
+  ],
+  "pickaxe": ["-Sif (array->object.fast_array)", "-Scode->flat", "-G!array->object.fast_array"],
+  "messages": ["array literal", "fast_array", "null.?pointer", "slow array", "large array", "#473", "28049", "flat"],
+  "terms": {"473": "#473|issues/473", "array literal": "array literal", "fast_array": "fast_array",
+            "null pointer": "null.?pointer", "njs_vmcode_array": "njs_vmcode_array|njs_vmcode\\.c:1049",
+            "slow array": "slow array", "CVE-2022-28049": "28049"}
+}

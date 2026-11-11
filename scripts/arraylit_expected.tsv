@@ -1,0 +1,32 @@
+# oracle /opt/homebrew/opt/node@22/bin/node v22.22.2; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+ctl_ctor_big	len=40000 first=hole last=hole keys=0
+ctl_dense	len=3 first=v:10 last=v:30 keys=3
+ctl_elision3	len=3 first=hole last=hole keys=0
+ctl_trailhole	len=2 first=v:1 last=hole keys=1
+ctorlead_3	len=3 first=v:1 last=hole keys=1
+ctorlead_32760	len=32760 first=v:1 last=hole keys=1
+ctorlead_32761	len=32761 first=v:1 last=hole keys=1
+ctorlead_40348	len=40348 first=v:1 last=hole keys=1
+ctorlead_65536	len=65536 first=v:1 last=hole keys=1
+element_3	len=4 first=v:1 last=v:1 keys=4
+element_32760	len=32761 first=v:1 last=v:1 keys=32761
+element_32761	len=32762 first=v:1 last=v:1 keys=32762
+element_40348	len=40349 first=v:1 last=v:1 keys=40349
+element_65536	len=65537 first=v:1 last=v:1 keys=65537
+elision_3	len=3 first=hole last=hole keys=0
+elision_32760	len=32760 first=hole last=hole keys=0
+elision_32761	len=32761 first=hole last=hole keys=0
+elision_40348	len=40348 first=hole last=hole keys=0
+elision_65536	len=65536 first=hole last=hole keys=0
+mixed_3	len=3 first=v:1 last=v:1 keys=2
+mixed_32760	len=32761 first=v:1 last=v:1 keys=16381
+mixed_32761	len=32761 first=v:1 last=v:1 keys=16381
+mixed_40348	len=40349 first=v:1 last=v:1 keys=20175
+mixed_65536	len=65537 first=v:1 last=v:1 keys=32769
+poc_shape	number:0
+tailval_3	len=4 first=hole last=v:1 keys=1
+tailval_32760	len=32761 first=hole last=v:1 keys=1
+tailval_32761	len=32762 first=hole last=v:1 keys=1
+tailval_40348	len=40349 first=hole last=v:1 keys=1
+tailval_65536	len=65537 first=hole last=v:1 keys=1
