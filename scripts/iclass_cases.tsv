@@ -1,0 +1,19 @@
+poc	f1 dataset PoC (Hash prepend Enumerable, then dup)	@/testcase/poc.rb
+f1_user_dup	f1 user class, prepend, dup, call prepended method on a copy instance	begin;module M;def w;:mw;end;end;class C;def w;:cw;end;end;C.prepend(M);d=C.dup;print "<<",(d.new.w),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_user_clone	f1 user class, prepend, clone, call prepended method on a copy instance	begin;module M;def w;:mw;end;end;class C;def w;:cw;end;end;C.prepend(M);d=C.clone;print "<<",(d.new.w),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_user_super	f1 user class, prepended method calls super, dup	begin;module M;def w;"M<"+super;end;end;class C;def w;"C";end;end;C.prepend(M);d=C.dup;print "<<",(d.new.w),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_two_dup	f1 user class, two prepended modules, dup (MRO M2,M1,C)	begin;module M1;def w;:m1;end;end;module M2;def w;:m2;end;end;class C;def w;:cw;end;end;C.prepend(M1);C.prepend(M2);d=C.dup;print "<<",(d.new.w),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_initcopy_dup	f1 user class with a user initialize_copy, prepend, dup	begin;module M;def w;:mw;end;end;class C;def w;:cw;end;def initialize_copy(o);super;end;end;C.prepend(M);d=C.dup;print "<<",(d.new.w),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_object_dup	f1 Object prepend then dup (isolated process)	begin;Object.prepend(Module.new);Object.dup;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_hash_dup	f1 Hash prepend then dup	begin;Hash.prepend(Module.new);Hash.dup;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_hash_clone	f1 Hash prepend then clone	begin;Hash.prepend(Module.new);Hash.clone;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_array_dup	f1 Array prepend then dup	begin;Array.prepend(Module.new);Array.dup;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+f1_string_clone	f1 String prepend then clone	begin;String.prepend(Module.new);String.clone;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+b_dup_noprepend	b user class, no prepend, dup, call method on a copy instance	begin;module M;def w;:mw;end;end;class C;def w;:cw;end;end;d=C.dup;print "<<",(d.new.w),">>";rescue => e;print "<<E:",e.class,">>";end
+b_clone_noprepend	b user class, no prepend, clone, call method on a copy instance	begin;module M;def w;:mw;end;end;class C;def w;:cw;end;end;d=C.clone;print "<<",(d.new.w),">>";rescue => e;print "<<E:",e.class,">>";end
+b_include_dup	b user class, include (not prepend), dup, call included method on a copy instance	begin;module M;def im;:im;end;end;class C;end;C.include(M);d=C.dup;print "<<",(d.new.im),">>";rescue => e;print "<<E:",e.class,">>";end
+b_prepend_nocopy	b user class, prepend, no copy, call prepended method	begin;module M;def w;:mw;end;end;class C;def w;:cw;end;end;C.prepend(M);print "<<",(C.new.w),">>";rescue => e;print "<<E:",e.class,">>";end
+b_extend_dup	b object extend, then dup the object, call extended method	begin;module M;def w;:mw;end;end;o=Object.new;o.extend(M);p2=o.dup;print "<<",(p2.respond_to?(:w)),">>";rescue => e;print "<<E:",e.class,">>";end
+c_str_dup	c plain String dup	begin;s="abc";print "<<",(s.dup),">>";rescue => e;print "<<E:",e.class,">>";end
+c_ary_clone	c plain Array clone	begin;a=[1,2];print "<<",(a.clone.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+c_hash_dup	c plain Hash dup, read a key	begin;h={:a=>1};print "<<",(h.dup[:a]),">>";rescue => e;print "<<E:",e.class,">>";end

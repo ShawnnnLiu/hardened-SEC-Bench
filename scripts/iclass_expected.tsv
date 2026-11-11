@@ -1,0 +1,19 @@
+poc	*
+f1_user_dup	mw
+f1_user_clone	mw
+f1_user_super	M<C
+f1_two_dup	m2
+f1_initcopy_dup	mw
+f1_object_dup	done
+f1_hash_dup	done
+f1_hash_clone	done
+f1_array_dup	done
+f1_string_clone	done
+b_dup_noprepend	cw
+b_clone_noprepend	cw
+b_include_dup	im
+b_prepend_nocopy	mw
+b_extend_dup	false
+c_str_dup	abc
+c_ary_clone	[1, 2]
+c_hash_dup	1

@@ -1,0 +1,15 @@
+diff --git a/src/kernel.c b/src/kernel.c
+index 8551b50..fcf5236 100644
+--- a/src/kernel.c
++++ b/src/kernel.c
+@@ -299,6 +299,10 @@ init_copy(mrb_state *mrb, mrb_value dest, mrb_value obj)
+     default:
+       break;
+   }
++  if (mrb_type(obj) == MRB_TT_ICLASS) {
++    fprintf(stderr, "ICLASS-INVARIANT init_copy dispatching initialize_copy on TT_ICLASS\n");
++    return;
++  }
+   mrb_funcall(mrb, dest, "initialize_copy", 1, obj);
+ }
+ 
