@@ -1,0 +1,8 @@
+e_c3_int	errclass 3 index args, Integer third	begin;s="abc";s[1,2,3]=:r;print "<<",(s),">>";rescue => e;print "<<E:",e.class,">>";end
+e_c3_str	errclass 3 index args, String third	begin;s="abc";s[1,2,"x"]=:r;print "<<",(s),">>";rescue => e;print "<<E:",e.class,">>";end
+e_c13_int	errclass 13 index args, Integer third	begin;s="abc";s[1,2,3,4,5,6,7,8,9,10,11,12,13]=:r;print "<<",(s),">>";rescue => e;print "<<E:",e.class,">>";end
+e_c13_str	errclass 13 index args, String third	begin;s="abc";s[1,2,"x",4,5,6,7,8,9,10,11,12,13]=:r;print "<<",(s),">>";rescue => e;print "<<E:",e.class,">>";end
+e_s15_int	errclass send with 15 args, Integer third	begin;s="abc";s.send(:[]=,1,2,3,4,5,6,7,8,9,10,11,12,13,14,:r);print "<<",(s),">>";rescue => e;print "<<E:",e.class,">>";end
+e_s15_str	errclass send with 15 args, String third	begin;s="abc";s.send(:[]=,1,2,"x",4,5,6,7,8,9,10,11,12,13,14,:r);print "<<",(s),">>";rescue => e;print "<<E:",e.class,">>";end
+e_c14_str	errclass 14 index args, String third	begin;s="abc";s[1,2,"x",4,5,6,7,8,9,10,11,12,13,14]=:r;print "<<",(s),">>";rescue => e;print "<<E:",e.class,">>";end
+e_ok2	errclass valid 2-index assignment	begin;s="abc";s[1,1]="Z";print "<<",(s),">>";rescue => e;print "<<E:",e.class,">>";end
