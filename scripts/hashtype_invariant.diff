@@ -1,0 +1,8 @@
+diff --git a/src/vm.c b/src/vm.c
+--- a/src/vm.c
++++ b/src/vm.c
+@@ -2769,3 +2769,4 @@
++      if (!mrb_hash_p(hash)) { fprintf(stderr, "HASHADD-INVARIANT non-hash at OP_HASHADD\n"); mrb_raise(mrb, E_TYPE_ERROR, "HASHADD-INVARIANT non-hash at OP_HASHADD"); }
+       for (i=a+1; i<lim; i+=2) {
+         mrb_hash_set(mrb, hash, regs[i], regs[i+1]);
+       }
