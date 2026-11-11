@@ -1,0 +1,50 @@
+{
+  "cve": "CVE-2022-27007",
+  "fix": "ad48705bf1f04b4221a5f5b07715ac48b3160d53",
+  "base": "e673ae41a998d1391bd562edb2ed6d49db7cc716",
+  "since": "2022-01-01",
+  "files": [
+    "src/njs_function.c"
+  ],
+  "commits": [
+    "ad48705bf1f04b4221a5f5b07715ac48b3160d53"
+  ],
+  "issues": [
+    469,
+    451
+  ],
+  "functions": [
+    {
+      "name": "njs_function_frame_save",
+      "file": "src/njs_function.c",
+      "checks": {
+        "spare_free_cleared": "native->free = NULL",
+        "spare_size_cleared": "native->size = 0",
+        "spare_free_size_cleared": "native->free_size = 0"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Gnjs_function_frame_save",
+    "-Snative->free = NULL"
+  ],
+  "messages": [
+    "frame",
+    "await",
+    "awaited frame",
+    "use-after-free",
+    "use after free",
+    "UAF",
+    "#469",
+    "#451",
+    "27007"
+  ],
+  "terms": {
+    "469": "#469|issues/469",
+    "451": "#451|issues/451",
+    "frame_save": "njs_function_frame_save",
+    "await": "await|awaited",
+    "uaf": "use-after-free|use after free|UAF",
+    "CVE-2022-27007": "27007"
+  }
+}

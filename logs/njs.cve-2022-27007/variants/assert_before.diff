@@ -1,0 +1,16 @@
+diff --git a/src/njs_function.c b/src/njs_function.c
+index c9d4d97..d988a54 100644
+--- a/src/njs_function.c
++++ b/src/njs_function.c
+@@ -815,6 +815,11 @@ njs_function_frame_save(njs_vm_t *vm, njs_frame_t *frame, u_char *pc)
+ 
+     native = &frame->native;
+ 
++    if (native->size != 0 && native->free_size != 0) {
++        njs_stderror("AWAITFRAME-INVARIANT saved frame keeps large-alloc spare that will dangle\n");
++        abort();
++    }
++
+     active = &vm->active_frame->native;
+     value_count = njs_function_frame_value_count(active);
+ 

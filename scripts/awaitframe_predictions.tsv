@@ -1,0 +1,13 @@
+case	ours:before	ours:after	ours:assert_before	ours:assert_after	ours:upstream_master	dev:before	dev:after
+deep_await_d30	ASAN	OK	INV	OK	OK	ASAN	OK
+deep_await_d60	ASAN	OK	INV	OK	OK	ASAN	OK
+deep_await_d100	ASAN	OK	INV	OK	OK	ASAN	OK
+deep_prom_d60	ASAN	OK	INV	OK	OK	ASAN	OK
+deep_noawait_d60	ASAN	OK	INV	OK	OK	ASAN	OK
+shallow_await_d10	OK	OK	OK	OK	OK	ASAN	OK
+ac_ret	OK	OK	OK	OK	OK	OK	OK
+ac_twoawait	OK	OK	OK	OK	OK	OK	OK
+na_asyncret	OK	OK	OK	OK	OK	OK	OK
+na_sync	OK	OK	OK	OK	OK	OK	OK
+na_arith	OK	OK	OK	OK	OK	OK	OK
+poc	ASAN	OK	INV	OK	OK	ASAN	OK

@@ -1,0 +1,13 @@
+# oracle /usr/local/bin/node v20.9.0; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+ac_ret	r7
+ac_twoawait	5
+deep_await_d100	100:0,99
+deep_await_d30	30:0,29
+deep_await_d60	60:0,59
+deep_noawait_d60	end:60
+deep_prom_d60	60:0,59
+na_arith	6
+na_asyncret	n9
+na_sync	s5
+shallow_await_d10	10:0,9
