@@ -1,0 +1,12 @@
+diff --git a/src/vm.c b/src/vm.c
+index 52c6405..8267ffe 100644
+--- a/src/vm.c
++++ b/src/vm.c
+@@ -2777,6 +2777,7 @@ RETRY_TRY_BLOCK:
+       mrb_value hash = regs[a];
+ 
+       mrb_ensure_hash_type(mrb, hash);
++      if (!mrb_hash_p(hash)) { fprintf(stderr, "HASHCAT-INVARIANT non-hash at OP_HASHCAT\n"); mrb_raise(mrb, E_TYPE_ERROR, "HASHCAT-INVARIANT non-hash at OP_HASHCAT"); }
+       mrb_hash_merge(mrb, hash, regs[a+1]);
+       mrb_gc_arena_restore(mrb, ai);
+       NEXT;

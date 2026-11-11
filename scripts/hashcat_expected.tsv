@@ -1,0 +1,17 @@
+# CRuby 2.7.0p0 reference values for the value cases of scripts/hashcat_cases.sh
+# (mruby.cve-2022-0630), produced by `bash hashcat_cases.sh ruby` in the image
+# container (ruby 2.7.0p0 2019-12-25 revision 647ee6f091). Oracle run 2026-11-07.
+# The crasher cases (hint, hfloat, hsym, hint_arr, hstr, hcat, hsplat, kc2int,
+# kc2hash, kc2nil, kc2str, kc2call, kc23, poc) raise or crash and are not value
+# cases. These values are also the inline expected arguments in hashcat_cases.sh.
+cvalid	1,0,2
+ckw	0,1
+cmerge	1,2,2
+cplain	1,2,2
+kalias	1|2
+kaliasarr	1|Array
+kafroz	1|2
+k1nil	E:TypeError
+kpalias	1|2
+kcpair	1|2
+kmerge	1|2
