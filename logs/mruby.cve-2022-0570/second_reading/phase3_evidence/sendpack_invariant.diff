@@ -1,0 +1,8 @@
+diff --git a/src/vm.c b/src/vm.c
+--- a/src/vm.c
++++ b/src/vm.c
+@@ -695,3 +695,4 @@
++    if (RARRAY_LEN(regs[0]) == 0) { fprintf(stderr, "SEND-INVARIANT empty packed array in mrb_f_send\n"); mrb_argnum_error(mrb, 0, 1, -1); }
+     name = mrb_obj_to_sym(mrb, RARRAY_PTR(regs[0])[0]);
+   }
+   else {
