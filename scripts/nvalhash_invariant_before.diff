@@ -1,0 +1,28 @@
+diff --git a/mrbgems/mruby-compiler/core/codegen.c b/mrbgems/mruby-compiler/core/codegen.c
+index 3504e60..875f691 100644
+--- a/mrbgems/mruby-compiler/core/codegen.c
++++ b/mrbgems/mruby-compiler/core/codegen.c
+@@ -1604,6 +1604,7 @@ gen_hash(codegen_scope *s, node *tree, int val, int limit)
+   while (tree) {
+     if (nint(tree->car->car->car) == NODE_KW_REST_ARGS) {
+       if (len > 0) {
++        if (!val) codegen_error(s, "STACK-INVARIANT gen_hash emits stack ops for discarded value");
+         pop_n(len*2);
+         if (!update) {
+           genop_2(s, OP_HASH, cursp(), len);
+@@ -1616,6 +1617,7 @@ gen_hash(codegen_scope *s, node *tree, int val, int limit)
+       }
+       codegen(s, tree->car->cdr, val);
+       if (len > 0 || update) {
++        if (!val) codegen_error(s, "STACK-INVARIANT gen_hash emits stack ops for discarded value");
+         pop(); pop();
+         genop_1(s, OP_HASHCAT, cursp());
+         push();
+@@ -1645,6 +1647,7 @@ gen_hash(codegen_scope *s, node *tree, int val, int limit)
+   }
+   if (update) {
+     if (len > 0) {
++      if (!val) codegen_error(s, "STACK-INVARIANT gen_hash emits stack ops for discarded value");
+       pop_n(len*2+1);
+       genop_2(s, OP_HASHADD, cursp(), len);
+       push();

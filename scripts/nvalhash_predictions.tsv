@@ -1,0 +1,14 @@
+case	dev:before	dev:after	ours:before	ours:after	ours:root	ours:assert_before	ours:assert_root	ours:cve0326_alone	ours:ae_alone	ours:dev_cve0326	ours:dev_ae
+splat_pair	OK	OK	WRONG	WRONG	OK	INV	OK	OK	WRONG	OK	WRONG
+pair_splat	OK	OK	WRONG	WRONG	OK	INV	OK	WRONG	OK	WRONG	OK
+two_splat	OK	OK	WRONG	WRONG	OK	INV	OK	WRONG	OK	WRONG	OK
+splat0_pair	OK	OK	WRONG	WRONG	OK	INV	OK	OK	WRONG	OK	WRONG
+pair_splat_pair	OK	OK	WRONG	WRONG	OK	INV	OK	WRONG	WRONG	WRONG	WRONG
+splat_pairs	OK	OK	WRONG	WRONG	OK	INV	OK	OK	WRONG	OK	WRONG
+bare_splat	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK
+bare_splat0	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK
+pair_only	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK
+nohash	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK
+val_arr_splat	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK
+val_hash_splat	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK	OK
+poc	ASAN	OK	ASAN	OK	OK	INV	OK	OK	ASAN	OK	OK
