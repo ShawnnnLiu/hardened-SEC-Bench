@@ -1,0 +1,21 @@
+m1_noparent	E:NoMethodError
+m1_override	"p"
+m1_twice	E:NameError
+m1_cdef	E:NoMethodError
+m2_super	E:NoMethodError
+m2_module	E:NoMethodError
+m2_prepend	E:NoMethodError
+m2_singleton	E:NoMethodError
+m3_basicobj	E:NoMethodError
+m3_basicobj_sub	E:NoMethodError
+m4_basicobj_gc	E:NoMethodError
+m4_own_gc	E:NoMethodError
+m5_multi	[:nf, :ng]
+m5_undefined	E:NameError
+m5_redef_rm	E:NoMethodError
+m6_undef	E:NoMethodError
+m6_alias	1
+m6_redef	2
+m6_definemeth	2
+m6_include	"m"
+poc	*

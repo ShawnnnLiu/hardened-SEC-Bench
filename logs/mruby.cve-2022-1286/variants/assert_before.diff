@@ -1,0 +1,48 @@
+diff --git a/src/class.c b/src/class.c
+index 37fc4e6..80a6c02 100644
+--- a/src/class.c
++++ b/src/class.c
+@@ -18,6 +18,9 @@
+ #include <mruby/opcode.h>
+ #include <mruby/internal.h>
+ #include <mruby/presym.h>
++/* mcache instrumentation (mruby.cve-2022-1286): stdio/stdlib for fprintf/abort */
++#include <stdio.h>
++#include <stdlib.h>
+ 
+ union mt_ptr {
+   struct RProc *proc;
+@@ -1776,6 +1779,33 @@ mrb_method_search_vm(mrb_state *mrb, struct RClass **cp, mrb_sym mid)
+   struct mrb_cache_entry *mc = &mrb->cache[h];
+ 
+   if (mc->c == c && mc->mid == mid) {
++    /* MCACHE-INVARIANT: verify the cached hit against a fresh uncached search;
++       a removal that did not clear this entry leaves a stale method. */
++    {
++      struct RClass *vc = c, *vfc = NULL;
++      mrb_method_t vmf;
++      MRB_METHOD_FROM_PROC(vmf, NULL);
++      while (vc) {
++        mt_tbl *vh = vc->mt;
++        if (vh) {
++          union mt_ptr vptr;
++          mrb_sym vret = mt_get(mrb, vh, mid, &vptr);
++          if (vret) {
++            if (vptr.proc == 0) { vfc = NULL; MRB_METHOD_FROM_PROC(vmf, NULL); break; }
++            vfc = vc;
++            if (vret & MT_FUNC_P) MRB_METHOD_FROM_FUNC(vmf, vptr.func);
++            else MRB_METHOD_FROM_PROC(vmf, vptr.proc);
++            if (vret & MT_NOARG_P) MRB_METHOD_NOARG_SET(vmf);
++            break;
++          }
++        }
++        vc = vc->super;
++      }
++      if (vfc != mc->c0 || vmf != mc->m) {
++        fprintf(stderr, "MCACHE-INVARIANT stale method cache entry (mid=%d)\n", (int)mid);
++        abort();
++      }
++    }
+     *cp = mc->c0;
+     return mc->m;
+   }

@@ -1,0 +1,21 @@
+m1_noparent	m1	begin;class C1;def f;1;end;end;o=C1.new;o.f;C1.send(:remove_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m1_override	m1	begin;class P2;def f;"p";end;end;class C2<P2;def f;"c";end;end;o=C2.new;o.f;C2.send(:remove_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m1_twice	m1	begin;class C3;def f;1;end;end;o=C3.new;o.f;C3.send(:remove_method,:f);C3.send(:remove_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m1_cdef	m1	begin;class C4;end;C4.send(:define_method,:f){1};o=C4.new;o.f;C4.send(:remove_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m2_super	m2	begin;class P5;def f;"p";end;end;class C5<P5;end;o=C5.new;o.f;P5.send(:remove_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m2_module	m2	begin;module M6;def f;"m";end;end;class C6;include M6;end;o=C6.new;o.f;M6.send(:remove_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m2_prepend	m2	begin;module M7;def f;"m";end;end;class C7;prepend M7;end;o=C7.new;o.f;M7.send(:remove_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m2_singleton	m2	begin;o=Object.new;class<<o;def f;1;end;end;o.f;class<<o;remove_method :f;end;r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m3_basicobj	m3	begin;class BasicObject;def f9;7;end;end;o=Object.new;o.f9;BasicObject.send(:remove_method,:f9);r=o.f9;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m3_basicobj_sub	m3	begin;class XSub9<BasicObject;end;class BasicObject;def f8;7;end;end;o=Object.new;o.f8;BasicObject.send(:remove_method,:f8);r=o.f8;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m4_basicobj_gc	m4	begin;class BasicObject;def f7;7;end;end;o=Object.new;o.f7;BasicObject.send(:remove_method,:f7);GC.start;i=0;while i<3000;Object.new;i+=1;end;GC.start;r=o.f7;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m4_own_gc	m4	begin;class C8;def f;1;end;end;o=C8.new;o.f;C8.send(:remove_method,:f);GC.start;i=0;while i<3000;Object.new;i+=1;end;GC.start;r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m5_multi	m5	begin;class C9;def f;1;end;def g;2;end;end;o=C9.new;o.f;o.g;C9.send(:remove_method,:f,:g);r=[(o.f rescue :nf),(o.g rescue :ng)];print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m5_undefined	m5	begin;class Ca;end;Ca.send(:remove_method,:nope);r=1;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m5_redef_rm	m5	begin;class Cb;def f;1;end;end;o=Cb.new;o.f;class Cb;def f;2;end;end;o.f;Cb.send(:remove_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m6_undef	m6	begin;class Cc;def f;1;end;end;o=Cc.new;o.f;Cc.send(:undef_method,:f);r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m6_alias	m6	begin;class Cd;def f;1;end;end;o=Cd.new;o.f;Cd.send(:alias_method,:g,:f);r=o.g;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m6_redef	m6	begin;class Ce;def f;1;end;end;o=Ce.new;o.f;class Ce;def f;2;end;end;r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m6_definemeth	m6	begin;class Cf;def f;1;end;end;o=Cf.new;o.f;Cf.send(:define_method,:f){2};r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+m6_include	m6	begin;module Mg;def f;"m";end;end;class Cg;end;o=Cg.new;(o.f rescue nil);class Cg;include Mg;end;r=o.f;print "<<",(r.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+poc	poc	@/testcase/poc.rb
