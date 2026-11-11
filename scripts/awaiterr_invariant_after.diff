@@ -1,0 +1,16 @@
+diff --git a/src/njs_vmcode.c b/src/njs_vmcode.c
+--- a/src/njs_vmcode.c
++++ b/src/njs_vmcode.c
+@@ -862,6 +862,12 @@
+                     goto error;
+                 }
+ 
++                if (njs_slow_path(ret == NJS_ERROR)) {
++                    njs_stderror("STACK-INVARIANT await error returns "
++                                 "without unwinding the frame\n");
++                    abort();
++                }
++
+                 return ret;
+ 
+             case NJS_VMCODE_TRY_START:

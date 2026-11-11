@@ -1,0 +1,46 @@
+{
+  "cve": "CVE-2022-34029",
+  "fix": "d09868bc71f9a990445959329ad8c1b10d3898f5",
+  "base": "d493f891f8f80a5474932ab14f6e397ef5463092",
+  "since": "2022-05-01",
+  "files": [
+    "src/njs_vmcode.c",
+    "src/njs_async.c",
+    "src/njs_scope.h"
+  ],
+  "commits": [
+    "d09868bc71f9a990445959329ad8c1b10d3898f5",
+    "c62a9fb9f870f5b0d0d1032a9bbe26e9a3b5e6c5",
+    "222d6fdcf0c6485ec8e175f3a7b70d650c234b4e"
+  ],
+  "issues": [506],
+  "functions": [
+    {
+      "name": "njs_vmcode_await",
+      "file": "src/njs_vmcode.c",
+      "checks": {
+        "internal_error_on_invalid": "await->retval is invalid",
+        "scope_valid_value": "njs_scope_valid_value\\(vm, await->retval\\)"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Sawait->retval is invalid",
+    "-Snjs_vmcode_await(vm, await, promise_cap, async_ctx)",
+    "-Gnjs_vmcode_await"
+  ],
+  "messages": [
+    "await",
+    "unwind",
+    "exit points",
+    "prematurely",
+    "#506",
+    "34029"
+  ],
+  "terms": {
+    "506": "#506|issues/506",
+    "await": "await",
+    "unwind": "unwind",
+    "CVE-2022-34029": "34029"
+  }
+}
