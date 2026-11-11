@@ -1,0 +1,27 @@
+diff --git a/src/class.c b/src/class.c
+index c761f46..3b189b6 100644
+--- a/src/class.c
++++ b/src/class.c
+@@ -5,6 +5,7 @@
+ */
+ 
+ #include <stdarg.h>
++#include <stdio.h>
+ #include <mruby.h>
+ #include <mruby/array.h>
+ #include <mruby/class.h>
+@@ -1765,7 +1766,13 @@ mrb_class_real(struct RClass* cl)
+ {
+   if (cl == 0)
+     return NULL;
+-  while ((cl->tt == MRB_TT_SCLASS) || (cl->tt == MRB_TT_ICLASS)) {
++  for (;;) {
++    if (cl == 0) {
++      fprintf(stderr, "CLASSREAL-INVARIANT mrb_class_real read tt of a NULL class\n");
++      return NULL;
++    }
++    if (!((cl->tt == MRB_TT_SCLASS) || (cl->tt == MRB_TT_ICLASS)))
++      break;
+     cl = cl->super;
+   }
+   return cl;

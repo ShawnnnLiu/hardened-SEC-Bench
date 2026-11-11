@@ -1,0 +1,19 @@
+d_poc	d dataset PoC (BasicObject.prepend Enumerable; class BasicObject < Class)	@/testcase/exploit.rb
+d_enum_class	d prepend Enumerable, reopen BasicObject < Class	begin;BasicObject.prepend Enumerable;class BasicObject < Class;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+d_enum_object	d prepend Enumerable, reopen BasicObject < Object	begin;BasicObject.prepend Enumerable;class BasicObject < Object;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+d_enum_basicobj	d prepend Enumerable, reopen BasicObject < BasicObject	begin;BasicObject.prepend Enumerable;class BasicObject < BasicObject;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+d_user_mod	d prepend a user module, reopen BasicObject < Class	begin;module Zz;end;BasicObject.prepend Zz;class BasicObject < Class;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+d_two_mods	d prepend two user modules, reopen BasicObject < Class	begin;module Aa;end;module Bb;end;BasicObject.prepend Aa;BasicObject.prepend Bb;class BasicObject < Class;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+b_noprepend_class	b reopen BasicObject < Class, no prepend (entry guard; TypeError)	begin;class BasicObject < Class;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+b_noprepend_nosuper	b reopen BasicObject, no super, no prepend	begin;class BasicObject;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+b_prepend_nosuper	b prepend Enumerable, reopen BasicObject with no super (super check skipped)	begin;BasicObject.prepend Enumerable;class BasicObject;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+b_user_prepend_reopen	b prepend a module to a user class, reopen it < Object (chain stops at Object)	begin;module Zz;end;class Cc;end;Cc.prepend Zz;class Cc < Object;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+b_new_subclass_prepended	b define a new subclass of a prepended user class	begin;module Zz;end;class Cc;end;Cc.prepend Zz;class Dd < Cc;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+cons_class	cons BasicObject.class after prepend (mrb_obj_class)	begin;BasicObject.prepend Enumerable;print "<<",(BasicObject.class),">>";rescue => e;print "<<E:",e.class,">>";end
+cons_superclass	cons BasicObject.superclass after prepend	begin;BasicObject.prepend Enumerable;print "<<",(BasicObject.superclass.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+cons_ancestors	cons BasicObject.ancestors length after prepend	begin;BasicObject.prepend Enumerable;print "<<",(BasicObject.ancestors.length),">>";rescue => e;print "<<E:",e.class,">>";end
+cons_inspect	cons BasicObject.inspect after prepend	begin;BasicObject.prepend Enumerable;print "<<",(BasicObject.inspect),">>";rescue => e;print "<<E:",e.class,">>";end
+cons_singleton	cons BasicObject.singleton_class.class after prepend	begin;BasicObject.prepend Enumerable;print "<<",(BasicObject.singleton_class.class),">>";rescue => e;print "<<E:",e.class,">>";end
+c_object_reopen	c reopen Object with its real super BasicObject	begin;class Object < BasicObject;end;print "<<",("done"),">>";rescue => e;print "<<E:",e.class,">>";end
+c_user_value	c plain user class, call a method	begin;class Cc;def hi;:hi;end;end;print "<<",(Cc.new.hi),">>";rescue => e;print "<<E:",e.class,">>";end
+c_plain_subclass	c plain subclass, read its superclass	begin;class Cc;end;class Dd < Cc;end;print "<<",(Dd.superclass.name),">>";rescue => e;print "<<E:",e.class,">>";end
