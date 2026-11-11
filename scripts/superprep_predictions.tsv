@@ -1,0 +1,12 @@
+case	dev:before	dev:after	ours:before	ours:after	ours:assert_before	ours:assert_after
+prep_init	ASAN	OK	ASAN	OK	INV	OK
+prep_init2	ASAN	OK	ASAN	OK	INV	OK
+poc	ASAN	OK	ASAN	OK	INV	OK
+mod_init	OK	OK	OK	OK	OK	OK
+mod_init2	OK	OK	OK	OK	OK	OK
+recv_string	OK	OK	OK	OK	OK	OK
+outside	OK	OK	OK	OK	OK	OK
+ctrl_class	OK	OK	OK	OK	OK	OK
+ctrl_module	OK	OK	OK	OK	OK	OK
+ctrl_prepend	OK	OK	OK	OK	OK	OK
+ctrl_prepend2	OK	OK	OK	OK	OK	OK
