@@ -1,0 +1,24 @@
+--- a/src/vm.c	2026-10-12 22:09:13
++++ b/src/vm.c	2026-10-12 22:09:24
+@@ -21,6 +21,7 @@
+ #include <mruby/dump.h>
+ #include <mruby/internal.h>
+ #include <mruby/presym.h>
++#include <stdio.h>
+ 
+ #ifdef MRB_NO_STDIO
+ #if defined(__cplusplus)
+@@ -1165,7 +1166,13 @@
+ hash_new_from_regs(mrb_state *mrb, mrb_int argc, mrb_int idx)
+ {
+   mrb_value hash = mrb_hash_new_capa(mrb, argc);
++  mrb_value *base0 = mrb->c->stbase;
+   while (argc--) {
++    if (mrb->c->stbase != base0) {
++      fprintf(stderr, "STACK-REALLOC tolerated in hash_new_from_regs (idx=%d)\n", (int)idx);
++      fflush(stderr);
++      base0 = mrb->c->stbase;
++    }
+     mrb_hash_set(mrb, hash, regs[idx+0], regs[idx+1]);
+     idx += 2;
+   }
