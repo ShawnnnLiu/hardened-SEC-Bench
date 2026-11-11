@@ -1,0 +1,1 @@
+o13 = Comparable.initialize(){||0x7f.instance_eval() do super rescue caller (0..1).sort_by() do break end end }

@@ -1,0 +1,12 @@
+diff --git a/src/vm.c b/src/vm.c
+index 29f2fcd..92531aa 100644
+--- a/src/vm.c
++++ b/src/vm.c
+@@ -1750,6 +1750,7 @@ RETRY_TRY_BLOCK:
+           goto super_typeerror;
+         }
+       }
++      if (!target_class) { fprintf(stderr, "SUPER-INVARIANT target class is NULL in OP_SUPER\n"); goto super_typeerror; }
+       recv = regs[0];
+       if (!mrb_obj_is_kind_of(mrb, recv, target_class)) {
+       super_typeerror: ;
