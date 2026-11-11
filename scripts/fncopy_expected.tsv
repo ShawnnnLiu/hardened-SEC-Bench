@@ -1,0 +1,39 @@
+# oracle node v20.9.0; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+global_call_null	EXC TypeError
+global_call_num	EXC TypeError
+global_call_obj	EXC TypeError
+global_call_str	EXC TypeError
+global_call_undef	EXC TypeError
+global_ref_null	null
+global_ref_num	number:5
+global_ref_obj	object
+global_ref_str	string:"s"
+global_ref_undef	undef
+local_call_null	EXC TypeError
+local_call_num	EXC TypeError
+local_call_obj	EXC TypeError
+local_call_str	EXC TypeError
+local_call_undef	EXC TypeError
+local_ref_null	null
+local_ref_num	number:5
+local_ref_obj	object
+local_ref_str	string:"s"
+local_ref_undef	undef
+masked_reassign_back	string:"new"
+self_call_null	EXC TypeError
+self_call_num	EXC TypeError
+self_call_obj	EXC TypeError
+self_call_str	EXC TypeError
+self_call_undef	EXC TypeError
+self_ref_null	null
+self_ref_num	number:5
+self_ref_obj	object
+self_ref_str	string:"s"
+self_ref_undef	undef
+valid_global_call_normal	number:9
+valid_global_ref_normal	function
+valid_local_call_normal	number:7
+valid_local_ref_normal	function
+valid_self_defined_twice	EXC TypeError
+valid_self_readonly_call	string:"function"

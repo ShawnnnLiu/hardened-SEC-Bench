@@ -1,0 +1,44 @@
+{
+  "cve": "CVE-2022-43284",
+  "fix": "04f59f9defeeb618260e620bb11466741c0e41e5",
+  "base": "50bb20a814c3c82b662c999630ce91ff068e3e48",
+  "since": "2022-05-01",
+  "files": [
+    "src/njs_vmcode.c",
+    "src/njs_scope.h",
+    "src/njs_function.c"
+  ],
+  "commits": [
+    "04f59f9defeeb618260e620bb11466741c0e41e5",
+    "c62a9fb92b102c90a66aa724cb9054183a33a68c",
+    "d09868bc71f9a990445959329ad8c1b10d3898f5"
+  ],
+  "issues": [470, 529],
+  "functions": [
+    {
+      "name": "njs_vmcode_function_copy",
+      "file": "src/njs_vmcode.c",
+      "checks": {
+        "scope_valid_value": "njs_scope_valid_value\\(vm, retidx\\)",
+        "scope_value": "njs_scope_value\\(vm, retidx\\)",
+        "guard_is_undefined": "njs_is_undefined\\(retval\\)",
+        "guard_not_valid": "!njs_is_valid\\(retval\\)"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Snjs_scope_valid_value(vm, retidx)",
+    "-Gnjs_vmcode_function_copy"
+  ],
+  "messages": [
+    "function value initialization",
+    "function value",
+    "#470",
+    "43284"
+  ],
+  "terms": {
+    "470": "#470|issues/470",
+    "529": "#529|issues/529",
+    "CVE-2022-43284": "43284"
+  }
+}

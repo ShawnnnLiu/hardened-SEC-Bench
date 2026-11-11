@@ -1,0 +1,20 @@
+diff --git a/src/njs_vmcode.c b/src/njs_vmcode.c
+--- a/src/njs_vmcode.c
++++ b/src/njs_vmcode.c
+@@ -1218,9 +1218,16 @@ static njs_jump_off_t
+ njs_vmcode_function_copy(njs_vm_t *vm, njs_value_t *value, njs_index_t retidx)
+ {
+     njs_value_t     *retval;
+     njs_function_t  *function;
++    njs_bool_t       fncopy_dbg_invalid;
++
++    fncopy_dbg_invalid = !njs_is_valid(njs_scope_value(vm, retidx));
+
+     retval = njs_scope_valid_value(vm, retidx);
+
+     if (njs_is_undefined(retval)) {
++        if (njs_slow_path(!fncopy_dbg_invalid)) {
++            njs_stderror("FNCOPY-INVARIANT re-init of assigned binding\n");
++            abort();
++        }
+         *retval = *value;
