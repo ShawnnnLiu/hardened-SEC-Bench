@@ -1,0 +1,89 @@
+{
+  "cve": "CVE-2022-38890",
+  "fix": "b9aea5854bcf6f2de8f7a7f1550874e392b94be2",
+  "base": "6af74b6c5e120595e11df74ca8749021e5f2a7e1",
+  "since": "2022-08-01",
+  "files": [
+    "src/njs_string.c",
+    "src/njs_string.h",
+    "src/njs_utf8.h"
+  ],
+  "commits": [
+    "b9aea5854bcf6f2de8f7a7f1550874e392b94be2",
+    "6af74b6c5e120595e11df74ca8749021e5f2a7e1",
+    "eafe4c7a326b163612f10861392622b5da5b1792",
+    "36f04a31",
+    "0313f3a0"
+  ],
+  "issues": [
+    522,
+    569
+  ],
+  "functions": [
+    {
+      "name": "njs_string_trim",
+      "file": "src/njs_string.c",
+      "checks": {
+        "end_prev": "end = prev;",
+        "length_minus_trim": "length -= trim",
+        "empty_result": "start == end"
+      }
+    },
+    {
+      "name": "njs_string_prototype_trim",
+      "file": "src/njs_string.c",
+      "checks": {
+        "size_zero_guard": "string\\.size == 0",
+        "string_new": "njs_string_new\\("
+      }
+    },
+    {
+      "name": "njs_string_prototype_pad",
+      "file": "src/njs_string.c",
+      "checks": {
+        "pad_size_zero": "pad_string\\.size == 0",
+        "pad_length_div": "padding / pad_length",
+        "utf8_offset": "njs_string_(utf8_)?offset\\("
+      }
+    },
+    {
+      "name": "njs_string_prop",
+      "file": "src/njs_string.c",
+      "checks": {
+        "length_zero_is_size": "\\(length == 0\\) \\? size : length"
+      }
+    },
+    {
+      "name": "njs_string_prototype_last_index_of",
+      "file": "src/njs_string.c",
+      "checks": {
+        "negative_index_guard": "index < 0",
+        "offset_call": "njs_string_(utf8_)?offset\\("
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Send = prev;",
+    "-Spad_string.size == 0",
+    "-S(length == 0) ? size : length"
+  ],
+  "messages": [
+    "trim",
+    "padEnd",
+    "padStart",
+    "byte string",
+    "unicode string",
+    "#569",
+    "#522",
+    "38890"
+  ],
+  "terms": {
+    "569": "#569|issues/569",
+    "trimEnd": "trimEnd",
+    "padEnd": "padEnd|padStart",
+    "byte string": "byte[- ]string",
+    "njs_string_trim": "njs_string_trim",
+    "CVE-2022-38890": "38890",
+    "String.fromCharCode": "fromCharCode"
+  }
+}

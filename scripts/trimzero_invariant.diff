@@ -1,0 +1,32 @@
+diff --git a/src/njs_string.c b/src/njs_string.c
+index 83cede548..aaaaaaaaa 100644
+--- a/src/njs_string.c
++++ b/src/njs_string.c
+@@ -2774,10 +2774,13 @@ njs_string_trim(const njs_value_t *value, njs_string_prop_t *string,
+     uint32_t              cp, trim;
+     const u_char          *p, *prev, *start, *end;
+     njs_unicode_decode_t  ctx;
++    njs_bool_t            utf8_in;
+
+     trim = 0;
+
+     njs_string_prop(string, value);
++
++    utf8_in = !njs_is_byte_or_ascii_string(string);
+
+     start = string->start;
+     end = string->start + string->size;
+@@ -2879,6 +2882,12 @@ njs_string_trim(const njs_value_t *value, njs_string_prop_t *string,
+     if (string->length != 0) {
+         string->length -= trim;
+     }
+
++    if (utf8_in && string->length == 0 && string->size != 0) {
++        njs_stderror("TRIMZERO-INVARIANT length 0 size %uz from utf8 input\n",
++                     (size_t) string->size);
++        abort();
++    }
++
+     return trim;
+ }
+
