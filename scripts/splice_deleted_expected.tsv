@@ -1,0 +1,147 @@
+# oracle node v22.22.2; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+bt_fast_none	EXC RangeError
+bt_fastholes_all	EXC RangeError
+bt_lenback_all	EXC RangeError
+bt_like_all	EXC RangeError
+bt_ta_n1	EXC RangeError
+bt_ta_n3	EXC RangeError
+consumer_like_concat	[number:0,string:"e0",hole,string:"e2"]len4
+consumer_like_join	string:"e0--e2"
+consumer_like_json	["e0",null,"e2"]
+consumer_like_keys	[string:"0",string:"2"]len2
+consumer_like_len	number:3
+consumer_ta_concat	[number:0,hole,hole,hole]len4
+consumer_ta_join	string:"--"
+consumer_ta_json	[null,null,null]
+consumer_ta_keys	[]len0
+consumer_ta_len	number:3
+nbr_lenback_concat	[string:"e0",hole,string:"e2",number:9]len4
+nbr_lenback_copywithin	[hole,hole,string:"e2"]len3
+nbr_lenback_fill	[string:"f",string:"f",string:"e2"]len3
+nbr_lenback_filter	[string:"e0",string:"e2"]len2
+nbr_lenback_foreach	number:2
+nbr_lenback_indexof	number:2
+nbr_lenback_join	string:"e0--e2"
+nbr_lenback_map	[string:"e0",hole,string:"e2"]len3
+nbr_lenback_reduce	string:"e0e2"
+nbr_lenback_reverse	[string:"e2",hole,string:"e0"]len3
+nbr_lenback_slice	[string:"e0",hole,string:"e2"]len3
+nbr_lenback_sort	[string:"e0",string:"e2",hole]len3
+nbr_like_concat	[obj:{0=string:"e0",2=string:"e2",length=number:3},number:9]len2
+nbr_like_copywithin	obj:{2=string:"e2",length=number:3}
+nbr_like_fill	obj:{0=string:"f",1=string:"f",2=string:"e2",length=number:3}
+nbr_like_filter	[string:"e0",string:"e2"]len2
+nbr_like_foreach	number:2
+nbr_like_indexof	number:2
+nbr_like_join	string:"e0--e2"
+nbr_like_map	[string:"e0",hole,string:"e2"]len3
+nbr_like_reduce	string:"e0e2"
+nbr_like_reverse	obj:{0=string:"e2",2=string:"e0",length=number:3}
+nbr_like_slice	[string:"e0",hole,string:"e2"]len3
+nbr_like_sort	obj:{0=string:"e0",1=string:"e2",length=number:3}
+nbr_ta_concat	[obj:{},number:9]len2
+nbr_ta_filter	[]len0
+nbr_ta_foreach	number:0
+nbr_ta_indexof	number:-1
+nbr_ta_join	string:"--"
+nbr_ta_map	[hole,hole,hole]len3
+nbr_ta_reduce	string:""
+nbr_ta_slice	[hole,hole,hole]len3
+reent_shrink0	[hole]len1 []len0
+reent_shrink1	[string:"a",hole,hole,hole,hole]len5 []len0
+reent_shrink2	[string:"a",string:"b",hole]len3 []len0
+size_like_n1	[hole]len1
+size_like_n100	[hole,hole,hole,hole,hole,hole,hole,hole]len100
+size_like_n1000	[hole,hole,hole,hole,hole,hole,hole,hole]len1000
+size_like_n32768	[hole,hole,hole,hole,hole,hole,hole,hole]len32768
+size_like_n32769	[hole,hole,hole,hole,hole,hole,hole,hole]len32769
+size_ta_n32768	[hole,hole,hole,hole,hole,hole,hole,hole]len32768
+size_ta_n32769	[hole,hole,hole,hole,hole,hole,hole,hole]len32769
+splice_args_all_w0	[hole,hole,hole]len3
+splice_args_all_w02	[hole,hole]len2
+splice_args_all_w11	[hole]len1
+splice_args_first_w0	[hole,string:"e1",string:"e2"]len3
+splice_args_first_w02	[hole,string:"e1"]len2
+splice_args_first_w11	[string:"e1"]len1
+splice_args_last_w0	[string:"e0",string:"e1",hole]len3
+splice_args_last_w02	[string:"e0",string:"e1"]len2
+splice_args_last_w11	[string:"e1"]len1
+splice_args_mid_w0	[string:"e0",hole,string:"e2"]len3
+splice_args_mid_w02	[string:"e0",hole]len2
+splice_args_mid_w11	[hole]len1
+splice_args_none_w0	[string:"e0",string:"e1",string:"e2"]len3
+splice_args_none_w02	[string:"e0",string:"e1"]len2
+splice_args_none_w11	[string:"e1"]len1
+splice_fast_none_w0	[string:"e0",string:"e1",string:"e2"]len3
+splice_fast_none_w02	[string:"e0",string:"e1"]len2
+splice_fast_none_w11	[string:"e1"]len1
+splice_fastholes_all_w0	[hole,hole,hole]len3
+splice_fastholes_all_w02	[hole,hole]len2
+splice_fastholes_all_w11	[hole]len1
+splice_fastholes_first_w0	[hole,string:"e1",string:"e2"]len3
+splice_fastholes_first_w02	[hole,string:"e1"]len2
+splice_fastholes_first_w11	[string:"e1"]len1
+splice_fastholes_last_w0	[string:"e0",string:"e1",hole]len3
+splice_fastholes_last_w02	[string:"e0",string:"e1"]len2
+splice_fastholes_last_w11	[string:"e1"]len1
+splice_fastholes_mid_w0	[string:"e0",hole,string:"e2"]len3
+splice_fastholes_mid_w02	[string:"e0",hole]len2
+splice_fastholes_mid_w11	[hole]len1
+splice_fastholes_none_w0	[string:"e0",string:"e1",string:"e2"]len3
+splice_fastholes_none_w02	[string:"e0",string:"e1"]len2
+splice_fastholes_none_w11	[string:"e1"]len1
+splice_lenback_all_w0	[hole,hole,hole]len3
+splice_lenback_all_w02	[hole,hole]len2
+splice_lenback_all_w11	[hole]len1
+splice_lenback_first_w0	[hole,string:"e1",string:"e2"]len3
+splice_lenback_first_w02	[hole,string:"e1"]len2
+splice_lenback_first_w11	[string:"e1"]len1
+splice_lenback_last_w0	[string:"e0",string:"e1",hole]len3
+splice_lenback_last_w02	[string:"e0",string:"e1"]len2
+splice_lenback_last_w11	[string:"e1"]len1
+splice_lenback_mid_w0	[string:"e0",hole,string:"e2"]len3
+splice_lenback_mid_w02	[string:"e0",hole]len2
+splice_lenback_mid_w11	[hole]len1
+splice_lenback_none_w0	[string:"e0",string:"e1",string:"e2"]len3
+splice_lenback_none_w02	[string:"e0",string:"e1"]len2
+splice_lenback_none_w11	[string:"e1"]len1
+splice_like_all_w0	[hole,hole,hole]len3
+splice_like_all_w02	[hole,hole]len2
+splice_like_all_w11	[hole]len1
+splice_like_first_w0	[hole,string:"e1",string:"e2"]len3
+splice_like_first_w02	[hole,string:"e1"]len2
+splice_like_first_w11	[string:"e1"]len1
+splice_like_last_w0	[string:"e0",string:"e1",hole]len3
+splice_like_last_w02	[string:"e0",string:"e1"]len2
+splice_like_last_w11	[string:"e1"]len1
+splice_like_mid_w0	[string:"e0",hole,string:"e2"]len3
+splice_like_mid_w02	[string:"e0",hole]len2
+splice_like_mid_w11	[hole]len1
+splice_like_none_w0	[string:"e0",string:"e1",string:"e2"]len3
+splice_like_none_w02	[string:"e0",string:"e1"]len2
+splice_like_none_w11	[string:"e1"]len1
+splice_ta_all_n1	[hole]len1
+splice_ta_all_n10	[hole,hole,hole,hole,hole,hole,hole,hole]len10
+splice_ta_all_n100	[hole,hole,hole,hole,hole,hole,hole,hole]len100
+splice_ta_all_n3	[hole,hole,hole]len3
+valid_args_all_present	[string:"e0",string:"e1",string:"e2"]len3
+valid_fast_all	[number:1,number:2,number:3]len3 []len0
+valid_fast_count_big	[number:2,number:3]len2 [number:1]len1
+valid_fast_delete	[number:2,number:3]len2 [number:1,number:4]len2
+valid_fast_empty	[]len0 []len0
+valid_fast_holes	[number:1,hole,number:3,hole,number:5]len5 []len0
+valid_fast_insert	[]len0 [number:1,string:"x",string:"y",number:2,number:3]len5
+valid_fast_negative	[number:3]len1 [number:1,number:2,number:4]len3
+valid_fast_none_args	[]len0 [number:1,number:2,number:3]len3
+valid_fast_overflow	[]len0 [number:1,number:2,number:3]len3
+valid_fast_replace	[number:1]len1 [string:"a",number:2,number:3]len3
+valid_fast_single	[number:7]len1 []len0
+valid_fast_zero	[]len0 [number:1,number:2,number:3]len3
+valid_lenback_all_present	[string:"e0",string:"e1",string:"e2"]len3
+valid_like_all_present	[string:"a",string:"b",string:"c"]len3
+valid_like_all_present_w11	[string:"b"]len1
+valid_like_empty	[]len0
+valid_like_gap_outside	[string:"c"]len1
+valid_like_gap_zero_count	[]len0
+valid_like_insert	[]len0

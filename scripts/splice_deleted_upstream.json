@@ -1,0 +1,73 @@
+{
+  "cve": "CVE-2022-29779",
+  "fix": "2e00e95473861846aa8538be87db07699d9f676d",
+  "base": "f65981b0b8fcf02d69a40bc934803c25c9f607ab",
+  "since": "2022-02-01",
+  "files": [
+    "src/njs_array.c",
+    "src/njs_value.c",
+    "src/njs_object.c",
+    "src/njs_builtin.c"
+  ],
+  "commits": [
+    "2e00e95473861846aa8538be87db07699d9f676d"
+  ],
+  "issues": [
+    485
+  ],
+  "functions": [
+    {
+      "name": "njs_array_prototype_splice",
+      "file": "src/njs_array.c",
+      "checks": {
+        "deleted_marker": "njs_set_invalid\\(&deleted->start\\[i\\]\\)",
+        "fast_check": "deleted->object\\.fast_array",
+        "generic_set": "njs_value_property_i64_set\\(vm, &del_object"
+      }
+    },
+    {
+      "name": "njs_array_prototype_slice_copy",
+      "file": "src/njs_array.c",
+      "checks": {
+        "gap_marker": "njs_set_invalid\\(value\\)",
+        "keys_path": "njs_array_indices"
+      }
+    },
+    {
+      "name": "njs_array_alloc",
+      "file": "src/njs_array.c",
+      "checks": {
+        "flat_argument": "njs_bool_t flat",
+        "slots_written": "njs_set_invalid|memzero|njs_memzero"
+      }
+    },
+    {
+      "name": "njs_value_own_enumerate",
+      "file": "src/njs_value.c",
+      "checks": {
+        "valid_check": "njs_is_valid"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Sdeleted->object.fast_array",
+    "-Snjs_set_invalid(&deleted->start[i])",
+    "-Gdeleted->start"
+  ],
+  "messages": [
+    "splice",
+    "uninitiali[sz]ed",
+    "deleted",
+    "gaps",
+    "#485",
+    "29779"
+  ],
+  "terms": {
+    "485": "#485|issues/485",
+    "splice": "splice",
+    "uninitialized": "uninitiali[sz]ed",
+    "deleted": "\"deleted\"|deleted array",
+    "njs_value_own_enumerate": "njs_value_own_enumerate|njs_value\\.c:240",
+    "CVE-2022-29779": "29779"
+  }
+}

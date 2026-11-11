@@ -1,0 +1,35 @@
+diff --git a/src/njs_array.c b/src/njs_array.c
+--- a/src/njs_array.c
++++ b/src/njs_array.c
+@@ -1262,6 +1262,12 @@ njs_array_prototype_splice(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+     if (njs_slow_path(deleted == NULL)) {
+         return NJS_ERROR;
+     }
++
++    if (deleted->object.fast_array) {
++        for (i = 0; i < delete; i++) {
++            njs_set_number(&deleted->start[i], 3.0e-320);
++        }
++    }
+ 
+     if (njs_fast_path(njs_is_fast_array(this) && deleted->object.fast_array)) {
+         array = njs_array(this);
+@@ -1356,6 +1362,18 @@ njs_array_prototype_splice(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+         }
+     }
+ 
++    if (deleted->object.fast_array) {
++        for (i = 0; i < delete; i++) {
++            if (njs_is_number(&deleted->start[i])
++                && deleted->start[i].data.u.number == 3.0e-320)
++            {
++                njs_stderror("SPLICE-INVARIANT unwritten slot %d of the "
++                             "array of deleted elements\n", (int) i);
++                abort();
++            }
++        }
++    }
++
+     njs_set_array(&vm->retval, deleted);
+ 
+     return NJS_OK;
