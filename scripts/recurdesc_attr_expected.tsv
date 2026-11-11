@@ -1,0 +1,6 @@
+# oracle node v22.22.2; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+attr_existing_enum	{"value":2,"writable":true,"enumerable":false,"configurable":true} keys 0,2
+attr_names_b	length,b
+attr_newidx_empty	len4 has3 true desc3 {"writable":false,"enumerable":false,"configurable":false} keys 0,1
+attr_newidx_value	{"value":30,"writable":false,"enumerable":false,"configurable":false}

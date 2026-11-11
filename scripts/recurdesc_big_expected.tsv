@@ -1,0 +1,9 @@
+# oracle node v22.22.2; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+rcbig_get_defp	len20000 own20000 head[v0,G,v2,v3,v4,v5]
+rcbig_get_freeze	E:TypeError
+rebig_value_defp	len20000 own20000 head[v0,vfn,v2,v3,v4,v5]
+rebig_value_freeze	E:TypeError
+rebig_writable_defp	len20000 own20000 head[v0,vundefined,v2,v3,v4,v5]
+rebig_writable_freeze	E:TypeError
+validbig	len20000 own20000 head[v0,v7,v2,v3,v4,v5]

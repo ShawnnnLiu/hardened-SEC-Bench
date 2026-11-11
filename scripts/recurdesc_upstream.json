@@ -1,0 +1,64 @@
+{
+  "cve": "CVE-2022-31306",
+  "fix": "81af26364c21c196dd21fb5e14c7fa9ce7debd17",
+  "base": "f65981b0b8fcf02d69a40bc934803c25c9f607ab",
+  "since": "2022-04-01",
+  "files": [
+    "src/njs_array.c",
+    "src/njs_object_prop.c",
+    "src/njs_object.c",
+    "src/njs_value.c"
+  ],
+  "commits": [
+    "81af26364c21c196dd21fb5e14c7fa9ce7debd17",
+    "4ae2f2b86d8a296e9e2c98da9d51bf8c2e38f8ef",
+    "f46ab5a1d915a0e4d9b9c47f8eb21790237d73fe",
+    "6549d496",
+    "8f5a628bf59feffe25385cf93097eab211f75bad"
+  ],
+  "issues": [
+    481,
+    1089
+  ],
+  "functions": [
+    {
+      "name": "njs_array_convert_to_slow_array",
+      "file": "src/njs_array.c",
+      "checks": {
+        "fast_array_guard": "!array->object.fast_array",
+        "frees_start": "njs_mp_free\\(vm->mem_pool, array->start\\)"
+      }
+    },
+    {
+      "name": "njs_object_prop_define",
+      "file": "src/njs_object_prop.c",
+      "checks": {
+        "property_ref_arm": "NJS_PROPERTY_REF",
+        "convert_call": "njs_array_convert_to_slow_array",
+        "descriptor_before_query": "njs_descriptor_prop\\(vm, prop, value\\)"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-S!array->object.fast_array",
+    "-Snjs_array_convert_to_slow_array"
+  ],
+  "messages": [
+    "defineProperty",
+    "recursive descriptor",
+    "reentrant",
+    "fast array",
+    "convert_to_slow_array",
+    "#481",
+    "#1089",
+    "31306"
+  ],
+  "terms": {
+    "481": "#481|issues/481",
+    "1089": "#1089|issues/1089",
+    "defineProperty": "defineProperty",
+    "convert_to_slow_array": "convert_to_slow_array",
+    "recursive descriptor": "recursive descriptor|reentrant descriptor",
+    "CVE-2022-31306": "31306"
+  }
+}
