@@ -1,0 +1,16 @@
+diff --git a/src/njs_object_prop.c b/src/njs_object_prop.c
+--- a/src/njs_object_prop.c
++++ b/src/njs_object_prop.c
+@@ -122,6 +122,12 @@ found:
+ 
+     prop = lhq->value;
+ 
++    if (prop->type == NJS_WHITEOUT) {
++        njs_stderror("WHITEOUT-INVARIANT njs_object_property returned a "
++                     "tombstone\n");
++        abort();
++    }
++
+     if (njs_is_data_descriptor(prop)) {
+         njs_value_assign(retval, njs_prop_value(prop));
+         return NJS_OK;

@@ -1,0 +1,24 @@
+diff --git a/src/njs_value.c b/src/njs_value.c
+index 296f057a2..c54e36d36 100644
+--- a/src/njs_value.c
++++ b/src/njs_value.c
+@@ -1487,13 +1487,16 @@ njs_value_property_delete(njs_vm_t *vm, njs_value_t *value, njs_value_t *key,
+         return NJS_ERROR;
+     }
+ 
+-    /* GC: release value. */
+     if (removed != NULL) {
+-        njs_value_assign(removed, njs_prop_value(prop));
++        if (njs_is_valid(njs_prop_value(prop))) {
++            njs_value_assign(removed, njs_prop_value(prop));
++
++        } else {
++            njs_set_undefined(removed);
++        }
+     }
+ 
+     prop->type = NJS_WHITEOUT;
+-    njs_set_invalid(njs_prop_value(prop));
+ 
+     return NJS_OK;
+ }

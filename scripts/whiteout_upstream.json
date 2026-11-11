@@ -1,0 +1,70 @@
+{
+  "cve": "CVE-2023-27727",
+  "fix": "484411868bf9351ae7513008f6efd28caa72574f",
+  "base": "1f54b79cabd1d112624ebba4d0a5f07cb3f70e95",
+  "since": "2023-01-01",
+  "files": [
+    "src/njs_object_prop.c",
+    "src/njs_value.c",
+    "src/njs_value.h",
+    "src/njs_object.h"
+  ],
+  "commits": [
+    "484411868bf9351ae7513008f6efd28caa72574f"
+  ],
+  "issues": [
+    617
+  ],
+  "functions": [
+    {
+      "name": "njs_object_property",
+      "file": "src/njs_object_prop.c",
+      "checks": {
+        "whiteout_skip": "type != NJS_WHITEOUT|type == NJS_WHITEOUT",
+        "goto_found": "goto found"
+      }
+    },
+    {
+      "name": "njs_value_property_delete",
+      "file": "src/njs_value.c",
+      "checks": {
+        "set_invalid_on_delete": "njs_set_invalid\\(njs_prop_value",
+        "removed_validity": "njs_is_valid\\(njs_prop_value"
+      }
+    },
+    {
+      "name": "njs_is_data_descriptor",
+      "file": "src/njs_object.h",
+      "checks": {
+        "writable_unset": "writable != NJS_ATTRIBUTE_UNSET",
+        "valid_value": "njs_is_valid\\(njs_prop_value"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-SNJS_WHITEOUT",
+    "-Gnjs_set_invalid",
+    "-Snjs_is_data_descriptor"
+  ],
+  "messages": [
+    "WHITEOUT",
+    "whiteout",
+    "accessor",
+    "delete",
+    "deleted",
+    "tombstone",
+    "#617",
+    "27727",
+    "dumping",
+    "invalid pointer"
+  ],
+  "terms": {
+    "617": "#617|issues/617",
+    "WHITEOUT": "(?-i:\\bWHITEOUT\\b)|whiteout",
+    "accessor": "accessor",
+    "delete": "\\bdelete\\b|deleted|deleting",
+    "njs_object_property": "njs_object_property",
+    "njs_function_frame": "njs_function_frame",
+    "CVE-2023-27727": "27727"
+  }
+}
