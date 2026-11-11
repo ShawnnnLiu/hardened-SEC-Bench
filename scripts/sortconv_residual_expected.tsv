@@ -1,0 +1,6 @@
+# oracle node v20.9.0; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+resid_pop_cmp	string:done
+resid_push_cmp	string:done
+resid_shift_cmp	string:done
+resid_shift_tostr	string:done

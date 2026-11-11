@@ -1,0 +1,14 @@
+# oracle node v20.9.0; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+conv_idx_big	number:65536
+conv_idx_edge	number:32769
+conv_len_big	number:65535
+conv_len_edge	number:32769
+ctl_cmp	string:1,2,3
+ctl_like	string:1,2
+ctl_nocmp	string:1,2,3
+keep_idx_edge	number:32768
+keep_len_edge	number:32768
+keep_set0	number:2
+pre_idx	number:65536
+pre_len	number:65535

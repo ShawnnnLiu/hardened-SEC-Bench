@@ -1,0 +1,50 @@
+{
+  "cve": "CVE-2022-29780",
+  "fix": "8b39afdad9a0761e0a5d4af1a762bd9a6daef572",
+  "base": "675049dc2ce07a06d5e6d65ab8664e49c7659d3a",
+  "since": "2022-03-01",
+  "files": [
+    "src/njs_array.c"
+  ],
+  "commits": [
+    "8b39afdad9a0761e0a5d4af1a762bd9a6daef572"
+  ],
+  "issues": [
+    468,
+    486
+  ],
+  "functions": [
+    {
+      "name": "njs_array_prototype_sort",
+      "file": "src/njs_array.c",
+      "checks": {
+        "writeback_fast_recheck": "fast_path && njs_is_fast_array",
+        "writeback_fast_plain": "if \\(njs_fast_path\\(fast_path\\)\\)"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Gnjs_array_prototype_sort",
+    "-Snjs_is_fast_array"
+  ],
+  "messages": [
+    "sort",
+    "comparator",
+    "comparefn",
+    "fast array",
+    "fast_array",
+    "slow array",
+    "#468",
+    "#486",
+    "29780"
+  ],
+  "terms": {
+    "468": "#468|issues/468",
+    "486": "#486|issues/486",
+    "sort": "\\bsort\\b",
+    "comparator": "comparator|comparefn",
+    "njs_array_prototype_sort": "njs_array_prototype_sort",
+    "fast_array": "fast_array|njs_is_fast_array",
+    "CVE-2022-29780": "29780"
+  }
+}

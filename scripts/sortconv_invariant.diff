@@ -1,0 +1,14 @@
+diff --git a/src/njs_array.c b/src/njs_array.c
+--- a/src/njs_array.c
++++ b/src/njs_array.c
+@@ -2700,4 +2700,10 @@
+         array = njs_array(this);
+         start = array->start;
++
++        if (start == NULL) {
++            njs_stderror("SORTCONV-INVARIANT sort write-back on a "
++                         "non-fast array\n");
++            abort();
++        }
+ 
+         for (i = 0; i < len; i++) {
