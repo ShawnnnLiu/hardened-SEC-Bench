@@ -1,0 +1,12 @@
+diff --git a/mrbgems/mruby-io/src/io.c b/mrbgems/mruby-io/src/io.c
+index 58bcdd1ee..249b126ae 100644
+--- a/mrbgems/mruby-io/src/io.c
++++ b/mrbgems/mruby-io/src/io.c
+@@ -568,6 +568,7 @@ mrb_io_initialize_copy(mrb_state *mrb, mrb_value copy)
+   }
+   fptr_copy = (struct mrb_io *)mrb_io_alloc(mrb);
+   fptr_orig = io_get_open_fptr(mrb, orig);
++  if (fptr_orig == fptr_copy) return copy;
+ 
+   DATA_TYPE(copy) = &mrb_io_type;
+   DATA_PTR(copy) = fptr_copy;
