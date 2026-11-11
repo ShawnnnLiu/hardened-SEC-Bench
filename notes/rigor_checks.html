@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rigor checks for root-cause verification</title>
+<style>
+body { font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.45; color: #111; background: #fff;
+       max-width: 62em; margin: 2em auto; padding: 0 1.5em; }
+h1 { font-size: 1.5em; margin: 0 0 0.3em; }
+h2 { font-size: 1.15em; margin: 1.8em 0 0.5em; border-bottom: 1px solid #ccc; padding-bottom: 0.2em; }
+h3 { font-size: 1em; margin: 1.2em 0 0.4em; }
+ul ul { margin-top: 0.2em; }
+p { margin: 0.6em 0; }
+table { border-collapse: collapse; width: 100%; margin: 0.8em 0 1.2em; font-size: 0.93em; }
+th, td { border: 1px solid #999; padding: 0.3em 0.5em; vertical-align: top; text-align: left; }
+th { background: #eee; font-weight: bold; }
+code { font-family: Menlo, Consolas, monospace; font-size: 0.92em; background: #f2f2f2; padding: 0 0.2em; white-space: nowrap; }
+ul { margin: 0.5em 0 0.5em 1.4em; padding: 0; }
+li { margin: 0.25em 0; }
+@media print { body { max-width: none; margin: 0; font-size: 11pt; } h2 { page-break-after: avoid; } table { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+<h1>Rigor checks for root-cause verification</h1>
+<p>Added 2026-10-12, worked out on mruby.cve-2022-1276. Procedure, scripts and the filled-in example are in the repository.</p>
+<h2>Completed instances</h2>
+<p>Case counts from each <code>before</code> variant run; regression wall time, x86_64 image under arm64 emulation.</p>
+<table>
+<thead><tr><th>Instance</th><th>Cases</th><th>Regression (before / after)</th></tr></thead><tbody>
+<tr><td>mruby.cve-2022-1276</td><td>138</td><td>8m56s / 8m57s</td></tr>
+<tr><td>mruby.cve-2022-1934</td><td>26</td><td>15s / 19s</td></tr>
+<tr><td>gpac.cve-2023-5586</td><td>132</td><td>2h33m / 2h33m</td></tr>
+<tr><td>njs.cve-2022-32414</td><td>629</td><td>2m45s / 4m21s</td></tr>
+<tr><td>njs.cve-2022-28049</td><td>31</td><td>2m00s / 2m09s</td></tr>
+<tr><td>mruby.cve-2022-0240</td><td>13</td><td>1m17s / 1m22s</td></tr>
+</tbody></table>
+<h2>Motivation</h2>
+<p>PatchBench (<a href="#ref-patchbench">Shen et al., 2026</a>) evaluates 11 patching agents on 213 C/C++ tasks and finds that checking only the original PoC inflates the solve rate 1.83x on average: 83.1% of agent patches eliminate the original PoC crash, but only 45.3% of tasks pass both security and semantic validation (Section 5.2, Finding 1).</p>
+<p>The same gap applies to the reference patches that agent patches are graded against. A developer patch that only masks the symptom passes the same PoC check. PatchBench discards tasks whose reference patch is orthogonal to the root cause (Section 4.2) but does not report how many.</p>
+<p><strong>Example: mruby.cve-2022-1276 (below).</strong> PatchBench cites its developer patch as one that "eliminates the root cause" (Section 2.2), yet after that patch 66 of 103 index assignments still get a wrong argument, with no crash and an unchanged test suite. 3 of the 6 instances recorded so far have such a developer patch (<code>dev_patch_fixes_root_cause</code> in <code>results.jsonl</code>), so each instance needs a reference patch checked against the root cause, not only the PoC.</p>
+<h2>Why</h2>
+<p>The developer patch for mruby.cve-2022-1276 (upstream c8c083cb75) and the root-cause patch (developer patch plus one <code>pop()</code>) both stop the PoC:</p>
+<table>
+<thead><tr><th>Oracle</th><th>before</th><th>developer patch</th><th>root-cause patch</th></tr></thead><tbody>
+<tr><td>PoC sanitizer report</td><td>crash</td><td>none</td><td>none</td></tr>
+<tr><td>mruby test suite (OK/KO/crash/skip, bintest)</td><td>1460/0/0/8, 61/61</td><td>same</td><td>same</td></tr>
+<tr><td>103 index assignments with keyword arguments</td><td>31 OK, 66 wrong, 6 ASan</td><td>37 OK, 66 wrong, 0 ASan</td><td>103 OK</td></tr>
+</tbody></table>
+<h3>The 103 cases</h3>
+<ul>
+<li>Synthetic cases that target the root error, not the PoC; written after the root cause was found, not from the dataset or test suite.
+</li>
+<li>Root bug: off-by-one in the register stack after the keyword hash, for every positional count 0-13. At 13 the VM reads an Integer as the argv array (OOB read, the PoC); at 0-12 no crash, but the callee silently gets a wrong last argument.
+</li>
+<li>Developer fix special-cases count 13 (the one the report hit); root-cause fix removes the off-by-one and covers all 14 counts.
+</li>
+</ul>
+<h2>Checks added</h2>
+<ul>
+<li><strong>Predictions before the run</strong> - predict each case's result (OK / wrong / ASan) on every build before running; <code>scripts/check_predictions.py</code> fails on any mismatch, so the root cause is a checked prediction set, not a story.
+</li>
+<li><strong>Developer-model column</strong> - the same predictions from the developer's own explanation; whatever it fails to predict becomes a logged count.
+</li>
+<li><strong>Assertion variant</strong> - a temporary check at the exact point where the invariant must hold stops the program with a fixed message (<code>STACK-INVARIANT</code>) the moment it breaks, instead of crashing later or silently giving a wrong value; it must fire on exactly the predicted bad cases without the fix, on none with the root-cause patch, and never on the project's own code (here every Ruby file in the source tree).
+</li>
+<li><strong>Blind second reading</strong> - a sealed-off reader gets only the report, PoC and base source and states the invariant and failing inputs; the patch is revealed in later phases, and agreement is scored per dimension before and after adjudication.
+</li>
+<li><strong>Separability rule</strong> - a second defect counts as independent only if its fix and the root fix repair disjoint case sets; "independent" becomes a test result, not a judgment.
+</li>
+<li><strong>Oracle pin</strong> - the program and version that gives the expected output (here CRuby 2.7.0 in the image).
+</li>
+<li><strong>Falsification and confidence</strong> - each record names the observation that would refute it and a high/medium/low rating with a reason.
+</li>
+<li><strong>Patch inventory</strong> - <code>results.jsonl</code> lists every patch: role, hash, source (<code>upstream</code>/<code>backport</code>/<code>secbench</code>/<code>synthetic</code>), what it fixes, status.
+</li>
+<li><strong>Tables from logs</strong> - case tables are rendered by <code>scripts/render_cases_table.py</code>, never typed from memory.
+</li>
+</ul>
+<h2>Results on mruby.cve-2022-1276</h2>
+<p>Predictions (<code>logs/mruby.cve-2022-1276/predictions.log</code>; 137 of 138 cases modelled, one case is on another code path):</p>
+<table>
+<thead><tr><th>Model and build</th><th>predicted</th><th>matched</th><th>mismatched</th></tr></thead><tbody>
+<tr><td>ours, each of before / dev / root / root+hash fix / assert_before / assert_root</td><td>137</td><td>137</td><td>0</td></tr>
+<tr><td>developer's model (fails only at 13 positional arguments), before</td><td>137</td><td>55</td><td>82</td></tr>
+<tr><td>developer's model, after the developer patch (predicts all OK)</td><td>137</td><td>54</td><td>83</td></tr>
+</tbody></table>
+<h2>Questions</h2>
+<ul>
+<li>Is this rigorous enough for an ACL resource paper (decision rules, agreement between readers, provenance, limitations), and if not, what is missing?
+</li>
+<li>When the developer patch does not fix the root cause and no developer commit anywhere (branches, tags, pull request heads, issues) fixes it, what goes in the dataset: the developer patch alone with a "does not fix the root cause" label, a synthetic root-cause patch marked as such, or neither?
+</li>
+<li>Do we stay with the bug as outlined by the report and the developer (here a crash at 13 arguments), or do we infer the root cause (here an off-by-one for 0 to 13 arguments with 66 silent wrong values)? If we infer, what is the acceptance bar: predictions, assertion, second reading, or all three?
+</li>
+<li>How do we define the scope of our own synthetic patch: only the faulty state the PoC reaches, every input that violates the same invariant, or every defect the cases find in the same code? (Here a second defect in <code>gen_hash()</code> is separable by the rule above but sits in the same branch.)
+</li>
+</ul>
+<h2>References</h2>
+<p id="ref-patchbench">Chihao Shen, Jiacheng Li, Aastha Mahajan, Jeffery Siyuan Tian, Yonghwi Kwon, and Yizheng Chen. 2026. PatchBench: Evaluating AI Agents for Vulnerability Patching. arXiv:2609.04075. <a href="https://arxiv.org/abs/2609.04075">https://arxiv.org/abs/2609.04075</a></p>
+</body>
+</html>
