@@ -1,0 +1,11 @@
+# oracle node v20.9.0 for valid cases; crash cases expected empty stdout (parse error)
+case	output
+cls_bare	
+cls_tail	
+clsbs_tail	
+outbs_tail	
+plain	
+val_cls	true
+val_clsbs	true
+val_outbs	true
+val_plain	true

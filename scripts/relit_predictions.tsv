@@ -1,0 +1,11 @@
+case	dev:before	dev:after	ours:before	ours:after	ours:assert_before	ours:assert_after	ours:upstream_master
+cls_bare	ASAN	OK	ASAN	OK	INV	OK	OK
+cls_tail	ASAN	OK	ASAN	OK	INV	OK	OK
+clsbs_tail	ASAN	OK	ASAN	OK	INV	OK	OK
+outbs_tail	ASAN	OK	ASAN	OK	INV	OK	OK
+plain	OK	OK	OK	OK	OK	OK	OK
+val_cls	OK	OK	OK	OK	OK	OK	OK
+val_clsbs	OK	OK	OK	OK	OK	OK	OK
+val_outbs	OK	OK	OK	OK	OK	OK	OK
+val_plain	OK	OK	OK	OK	OK	OK	OK
+poc	ASAN	OK	ASAN	OK	INV	OK	OK

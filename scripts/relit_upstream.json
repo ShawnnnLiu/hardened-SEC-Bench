@@ -1,0 +1,47 @@
+{
+  "cve": "CVE-2019-13617",
+  "fix": "ee400ea880dc46bb02c4be2564b183c114d4cd42",
+  "base": "15fc1a049a3d4d34c2c70757a9a9b49dd1ae7259",
+  "since": "2019-06-01",
+  "files": [
+    "src/njs_regexp.c"
+  ],
+  "commits": [
+    "ee400ea880dc46bb02c4be2564b183c114d4cd42"
+  ],
+  "issues": [
+    174
+  ],
+  "functions": [
+    {
+      "name": "njs_regexp_literal",
+      "file": "src/njs_regexp.c",
+      "checks": {
+        "class_loop_while_unbounded": "while \\(\\+\\+p < lexer->end",
+        "class_loop_goto_failed": "if \\(\\+\\+p >= lexer->end\\)",
+        "outer_backslash_bounded": "\\+\\+p >= lexer->end \\|\\| \\*p"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Gnjs_regexp_literal",
+    "-Slexer->end"
+  ],
+  "messages": [
+    "regexp",
+    "RegExp",
+    "heap-buffer-overflow",
+    "heap buffer overflow",
+    "over-read",
+    "regexp literal",
+    "#174",
+    "13617"
+  ],
+  "terms": {
+    "174": "#174|issues/174",
+    "regexp": "regexp|RegExp",
+    "njs_regexp_literal": "njs_regexp_literal",
+    "overflow": "overflow|over-read|out of bound|out-of-bound",
+    "CVE-2019-13617": "13617"
+  }
+}

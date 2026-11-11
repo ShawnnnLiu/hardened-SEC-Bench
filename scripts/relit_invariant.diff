@@ -1,0 +1,15 @@
+diff --git a/src/njs_regexp.c b/src/njs_regexp.c
+--- a/src/njs_regexp.c
++++ b/src/njs_regexp.c
+@@ -389,6 +389,11 @@ njs_regexp_literal(njs_vm_t *vm, njs_parser_t *parser, njs_value_t *value)
+     }
+
+ failed:
++
++    if (p > lexer->end) {
++        njs_stderror("RELIT-INVARIANT regexp scan ran past the input end\n");
++        abort();
++    }
+
+     njs_parser_syntax_error(vm, parser, "Unterminated RegExp \"%*s\"",
+                             p - (lexer->start - 1), lexer->start - 1);
