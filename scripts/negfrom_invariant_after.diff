@@ -1,0 +1,18 @@
+diff --git a/src/njs_iterator.c b/src/njs_iterator.c
+index 043e448..d245085 100644
+--- a/src/njs_iterator.c
++++ b/src/njs_iterator.c
+@@ -564,6 +564,13 @@ njs_object_iterate_reverse(njs_vm_t *vm, njs_iterator_args_t *args,
+             i = from + 1;
+ 
+             if (i > to) {
++                /* Instrumentation: the start index must be inside the string. */
++                if (njs_slow_path(from < 0 || from >= length)) {
++                    njs_stderror("NEGFROM-INVARIANT njs_string_offset() index "
++                                 "%L, length %L\n", from, length);
++                    abort();
++                }
++
+                 p = njs_string_offset(string_prop.start, end, from);
+                 p = njs_utf8_next(p, end);
+             }

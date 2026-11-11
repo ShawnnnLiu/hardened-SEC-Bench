@@ -1,0 +1,15 @@
+diff --git a/src/njs_array.c b/src/njs_array.c
+index 81a7c15..84407f1 100644
+--- a/src/njs_array.c
++++ b/src/njs_array.c
+@@ -2384,6 +2384,10 @@ njs_array_prototype_reverse_iterator(njs_vm_t *vm, njs_value_t *args,
+ 
+         } else if (from < 0) {
+             from += length;
++
++            if (from < 0) {
++                from = 0;
++            }
+         }
+ 
+         break;

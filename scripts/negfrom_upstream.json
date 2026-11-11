@@ -1,0 +1,131 @@
+{
+  "cve": "CVE-2022-31307",
+  "fix": "eafe4c7a326b163612f10861392622b5da5b1792",
+  "base": "f65981b0b8fcf02d69a40bc934803c25c9f607ab",
+  "since": "2022-04-01",
+  "files": [
+    "src/njs_iterator.c",
+    "src/njs_array.c",
+    "src/njs_string.c",
+    "src/njs_string.h",
+    "src/njs_utf8.h",
+    "src/njs_regexp.c"
+  ],
+  "commits": [
+    "eafe4c7a326b163612f10861392622b5da5b1792",
+    "982100ba56798dfc487ec9d792ce91916e14c5cc",
+    "b9aea5854bcf6f2de8f7a7f1550874e392b94be2",
+    "ea0a09cd",
+    "0313f3a0",
+    "36f04a31",
+    "485b3657",
+    "3a5042f6",
+    "532d5838",
+    "647b0e28"
+  ],
+  "issues": [
+    482,
+    569
+  ],
+  "functions": [
+    {
+      "name": "njs_object_iterate_reverse",
+      "file": "src/njs_iterator.c",
+      "checks": {
+        "range_guard": "if \\(i > to\\)",
+        "offset_call": "njs_string_offset\\(",
+        "p_null_init": "p = NULL;"
+      }
+    },
+    {
+      "name": "njs_array_prototype_reverse_iterator",
+      "file": "src/njs_array.c",
+      "checks": {
+        "negative_from_adjust": "from \\+= length",
+        "calls_iterate_reverse": "njs_object_iterate_reverse"
+      }
+    },
+    {
+      "name": "njs_string_offset",
+      "file": "src/njs_string.c",
+      "checks": {
+        "size_t_index": "size_t +index",
+        "map_start": "njs_string_map_start"
+      }
+    },
+    {
+      "name": "njs_string_prototype_last_index_of",
+      "file": "src/njs_string.c",
+      "checks": {
+        "negative_index_guard": "index < 0",
+        "offset_call": "njs_string_offset\\("
+      }
+    },
+    {
+      "name": "njs_string_trim",
+      "file": "src/njs_string.c",
+      "checks": {
+        "end_prev": "end = prev;",
+        "utf8_prev": "njs_utf8_prev"
+      }
+    },
+    {
+      "name": "njs_object_iterate",
+      "file": "src/njs_iterator.c",
+      "checks": {
+        "utf8_offset_before_loop": "njs_string_(utf8_)?offset\\(",
+        "from_loop": "for \\(i = from; i < to; i\\+\\+\\)"
+      }
+    },
+    {
+      "name": "njs_regexp_prototype_symbol_replace",
+      "file": "src/njs_regexp.c",
+      "checks": {
+        "clamp_in_characters": "njs_max\\(njs_min\\(pos, \\(int64_t\\) length\\), 0\\)",
+        "offset_call": "njs_string_(utf8_)?offset\\("
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Snjs_string_offset(",
+    "-Sif (i > to)",
+    "-Gfrom \\+= length",
+    "-Send = prev;",
+    "-Sfor (i = from; i < to; i++)",
+    "-Snjs_max(njs_min(pos, (int64_t) length), 0)"
+  ],
+  "messages": [
+    "string_offset",
+    "lastIndexOf",
+    "fromIndex",
+    "iterate_reverse",
+    "reduceRight",
+    "valid index",
+    "invalid index",
+    "unicode string",
+    "#482",
+    "#569",
+    "31307",
+    "38890",
+    "Symbol.replace",
+    "@@replace",
+    "indexOf\\(\\)",
+    "includes\\(\\)",
+    "Array.prototype.indexOf",
+    "inconsistent match"
+  ],
+  "terms": {
+    "482": "#482|issues/482",
+    "569": "#569|issues/569",
+    "lastIndexOf": "lastIndexOf",
+    "reduceRight": "reduceRight",
+    "njs_string_offset": "njs_string_offset",
+    "fromIndex": "fromIndex",
+    "njs_object_iterate_reverse": "iterate_reverse",
+    "CVE-2022-31307": "31307",
+    "CVE-2022-38890": "38890",
+    "trimEnd": "trimEnd",
+    "Symbol.replace": "Symbol\\.replace|@@replace",
+    "Array.prototype.indexOf": "Array\\.prototype\\.indexOf|Array\\.prototype\\.includes"
+  }
+}
