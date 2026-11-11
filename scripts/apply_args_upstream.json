@@ -1,0 +1,77 @@
+{
+  "cve": "CVE-2021-46462",
+  "fix": "39e8fa1b7db1680654527f8fa0e9ee93b334ecba",
+  "base": "6a40a85ff239497c6458c7dbef18f6a2736fe992",
+  "since": "2022-01-01",
+  "files": [
+    "src/njs_function.c",
+    "src/njs_array.c",
+    "src/njs_object.c",
+    "src/njs_object_prop.c",
+    "src/njs_value.c"
+  ],
+  "commits": [
+    "39e8fa1b7db1680654527f8fa0e9ee93b334ecba"
+  ],
+  "issues": [
+    449
+  ],
+  "functions": [
+    {
+      "name": "njs_function_prototype_apply",
+      "file": "src/njs_function.c",
+      "checks": {
+        "array_fast_path": "njs_is_array\\(arr_like\\)",
+        "limit_1024": "length > 1024",
+        "generic_length": "njs_object_length\\(vm, arr_like"
+      }
+    },
+    {
+      "name": "njs_function_native_frame",
+      "file": "src/njs_function.c",
+      "checks": {
+        "null_args_guard": "args != NULL",
+        "args_zeroed": "memset"
+      }
+    },
+    {
+      "name": "njs_array_convert_to_slow_array",
+      "file": "src/njs_array.c",
+      "checks": {
+        "length_reset": "array->length = 0"
+      }
+    },
+    {
+      "name": "njs_array_alloc",
+      "file": "src/njs_array.c",
+      "checks": {
+        "flat_argument": "njs_bool_t flat",
+        "large_object_limit": "NJS_ARRAY_LARGE_OBJECT_LENGTH"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Sargument list is too long",
+    "-Snjs_is_array(arr_like)",
+    "-Garray->length = 0",
+    "-Gfast_array"
+  ],
+  "messages": [
+    "apply",
+    "slow array",
+    "argument list",
+    "arguments? list",
+    "array-like",
+    "#449",
+    "46462"
+  ],
+  "terms": {
+    "449": "#449|issues/449",
+    "Function.prototype.apply": "Function\\.prototype\\.apply",
+    "apply": "\\.apply\\(",
+    "argument list": "argument list is too long",
+    "slow array": "slow array",
+    "set_prototype": "njs_object_set_prototype|__proto__ *=",
+    "CVE-2021-46462": "46462"
+  }
+}

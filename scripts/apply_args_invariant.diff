@@ -1,0 +1,24 @@
+diff --git a/src/njs_function.c b/src/njs_function.c
+--- a/src/njs_function.c
++++ b/src/njs_function.c
+@@ -1427,6 +1427,20 @@ njs_function_prototype_apply(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+ 
+     frame = (njs_frame_t *) vm->top_frame;
+ 
++    if (njs_slow_path(args == NULL && length != 0)) {
++        njs_stderror("APPLY-INVARIANT null argument vector for %d "
++                     "arguments\n", (int) length);
++        abort();
++    }
++
++    for (i = 0; i < length; i++) {
++        if (njs_slow_path(!njs_is_valid(&args[i]))) {
++            njs_stderror("APPLY-INVARIANT absent-element marker at "
++                         "argument %d\n", (int) i);
++            abort();
++        }
++    }
++
+     ret = njs_function_frame(vm, func, this, args, length, 0);
+     if (njs_slow_path(ret != NJS_OK)) {
+         return ret;
