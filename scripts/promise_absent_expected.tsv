@@ -1,0 +1,630 @@
+# oracle /opt/homebrew/opt/node@22/bin/node v22.22.2; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+agg_al1	1 undefined
+agg_al2q	2 s:a undefined
+agg_alfull	2 s:a s:b
+agg_big	1025 undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined undefined
+agg_dense	2 s:a s:b
+agg_hole1	1 undefined
+agg_holemid	3 n:1 undefined n:3
+agg_sparse	2 undefined undefined
+allSettled_al1_alet	[{status=s:fulfilled,value=undefined}]
+allSettled_al1_args	1:true:[{status=s:fulfilled,value=undefined}]
+allSettled_al1_avar	[{status=s:fulfilled,value=undefined}]
+allSettled_al1_chain	done [{status=s:fulfilled,value=undefined}]
+allSettled_al1_forin	done [{status=s:fulfilled,value=undefined}]
+allSettled_al1_freeze	done [{status=s:fulfilled,value=undefined}]
+allSettled_al1_json	json s:[{"status":"fulfilled"}]
+allSettled_al1_pocshape	done
+allSettled_al1_str	str s:[object Object]
+allSettled_al1_then	[{status=s:fulfilled,value=undefined}]
+allSettled_al1_vals	[s:fulfilled,undefined]
+allSettled_al2p_alet	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=s:b}]
+allSettled_al2p_args	1:true:[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=s:b}]
+allSettled_al2p_avar	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=s:b}]
+allSettled_al2p_chain	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=s:b}]
+allSettled_al2p_forin	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=s:b}]
+allSettled_al2p_freeze	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=s:b}]
+allSettled_al2p_json	json s:[{"status":"fulfilled"},{"status":"fulfilled","value":"b"}]
+allSettled_al2p_pocshape	done
+allSettled_al2p_str	str s:[object Object],[object Object]
+allSettled_al2p_then	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=s:b}]
+allSettled_al2p_vals	[s:fulfilled,undefined];[s:fulfilled,s:b]
+allSettled_al2q_alet	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=undefined}]
+allSettled_al2q_args	1:true:[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=undefined}]
+allSettled_al2q_avar	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=undefined}]
+allSettled_al2q_chain	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=undefined}]
+allSettled_al2q_forin	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=undefined}]
+allSettled_al2q_freeze	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=undefined}]
+allSettled_al2q_json	json s:[{"status":"fulfilled","value":"a"},{"status":"fulfilled"}]
+allSettled_al2q_pocshape	done
+allSettled_al2q_str	str s:[object Object],[object Object]
+allSettled_al2q_then	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=undefined}]
+allSettled_al2q_vals	[s:fulfilled,s:a];[s:fulfilled,undefined]
+allSettled_alfull_alet	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_alfull_args	1:true:[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_alfull_avar	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_alfull_chain	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_alfull_forin	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_alfull_freeze	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_alfull_json	json s:[{"status":"fulfilled","value":"a"},{"status":"fulfilled","value":"b"}]
+allSettled_alfull_pocshape	done
+allSettled_alfull_str	str s:[object Object],[object Object]
+allSettled_alfull_then	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_alfull_vals	[s:fulfilled,s:a];[s:fulfilled,s:b]
+allSettled_big_forin	done len=1025 first={status=s:fulfilled,value=undefined} last={status=s:fulfilled,value=undefined}
+allSettled_big_then	len=1025 first={status=s:fulfilled,value=undefined} last={status=s:fulfilled,value=undefined}
+allSettled_dense_alet	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_dense_args	1:true:[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_dense_avar	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_dense_chain	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_dense_forin	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_dense_freeze	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_dense_json	json s:[{"status":"fulfilled","value":"a"},{"status":"fulfilled","value":"b"}]
+allSettled_dense_pocshape	done
+allSettled_dense_str	str s:[object Object],[object Object]
+allSettled_dense_then	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_dense_vals	[s:fulfilled,s:a];[s:fulfilled,s:b]
+allSettled_empty_alet	[]
+allSettled_empty_args	1:true:[]
+allSettled_empty_avar	[]
+allSettled_empty_chain	done []
+allSettled_empty_forin	done []
+allSettled_empty_freeze	done []
+allSettled_empty_json	json s:[]
+allSettled_empty_pocshape	done
+allSettled_empty_str	str s:
+allSettled_empty_then	[]
+allSettled_empty_vals	
+allSettled_fn3_alet	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_fn3_args	1:true:[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_fn3_avar	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_fn3_chain	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_fn3_forin	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_fn3_freeze	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_fn3_json	json s:[{"status":"fulfilled"},{"status":"fulfilled"},{"status":"fulfilled"}]
+allSettled_fn3_pocshape	done
+allSettled_fn3_str	str s:[object Object],[object Object],[object Object]
+allSettled_fn3_then	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_fn3_vals	[s:fulfilled,undefined];[s:fulfilled,undefined];[s:fulfilled,undefined]
+allSettled_getter_alet	[{status=s:fulfilled,value=s:g}]
+allSettled_getter_args	1:true:[{status=s:fulfilled,value=s:g}]
+allSettled_getter_avar	[{status=s:fulfilled,value=s:g}]
+allSettled_getter_chain	done [{status=s:fulfilled,value=s:g}]
+allSettled_getter_forin	done [{status=s:fulfilled,value=s:g}]
+allSettled_getter_freeze	done [{status=s:fulfilled,value=s:g}]
+allSettled_getter_json	json s:[{"status":"fulfilled","value":"g"}]
+allSettled_getter_pocshape	done
+allSettled_getter_str	str s:[object Object]
+allSettled_getter_then	[{status=s:fulfilled,value=s:g}]
+allSettled_getter_vals	[s:fulfilled,s:g]
+allSettled_hole1_alet	[{status=s:fulfilled,value=undefined}]
+allSettled_hole1_args	1:true:[{status=s:fulfilled,value=undefined}]
+allSettled_hole1_avar	[{status=s:fulfilled,value=undefined}]
+allSettled_hole1_chain	done [{status=s:fulfilled,value=undefined}]
+allSettled_hole1_forin	done [{status=s:fulfilled,value=undefined}]
+allSettled_hole1_freeze	done [{status=s:fulfilled,value=undefined}]
+allSettled_hole1_json	json s:[{"status":"fulfilled"}]
+allSettled_hole1_pocshape	done
+allSettled_hole1_str	str s:[object Object]
+allSettled_hole1_then	[{status=s:fulfilled,value=undefined}]
+allSettled_hole1_vals	[s:fulfilled,undefined]
+allSettled_holemid_alet	[{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=n:3}]
+allSettled_holemid_args	1:true:[{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=n:3}]
+allSettled_holemid_avar	[{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=n:3}]
+allSettled_holemid_chain	done [{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=n:3}]
+allSettled_holemid_forin	done [{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=n:3}]
+allSettled_holemid_freeze	done [{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=n:3}]
+allSettled_holemid_json	json s:[{"status":"fulfilled","value":1},{"status":"fulfilled"},{"status":"fulfilled","value":3}]
+allSettled_holemid_pocshape	done
+allSettled_holemid_str	str s:[object Object],[object Object],[object Object]
+allSettled_holemid_then	[{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=n:3}]
+allSettled_holemid_vals	[s:fulfilled,n:1];[s:fulfilled,undefined];[s:fulfilled,n:3]
+allSettled_mixed_alet	[{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=n:2},{status=s:fulfilled,value=n:3}]
+allSettled_mixed_args	1:true:[{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=n:2},{status=s:fulfilled,value=n:3}]
+allSettled_mixed_avar	[{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=n:2},{status=s:fulfilled,value=n:3}]
+allSettled_mixed_chain	done [{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=n:2},{status=s:fulfilled,value=n:3}]
+allSettled_mixed_forin	done [{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=n:2},{status=s:fulfilled,value=n:3}]
+allSettled_mixed_freeze	done [{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=n:2},{status=s:fulfilled,value=n:3}]
+allSettled_mixed_json	json s:[{"status":"fulfilled","value":1},{"status":"fulfilled","value":2},{"status":"fulfilled","value":3}]
+allSettled_mixed_pocshape	done
+allSettled_mixed_str	str s:[object Object],[object Object],[object Object]
+allSettled_mixed_then	[{status=s:fulfilled,value=n:1},{status=s:fulfilled,value=n:2},{status=s:fulfilled,value=n:3}]
+allSettled_mixed_vals	[s:fulfilled,n:1];[s:fulfilled,n:2];[s:fulfilled,n:3]
+allSettled_proto_alet	[{status=s:fulfilled,value=s:p}]
+allSettled_proto_args	1:true:[{status=s:fulfilled,value=s:p}]
+allSettled_proto_avar	[{status=s:fulfilled,value=s:p}]
+allSettled_proto_chain	done [{status=s:fulfilled,value=s:p}]
+allSettled_proto_forin	done [{status=s:fulfilled,value=s:p}]
+allSettled_proto_freeze	done [{status=s:fulfilled,value=s:p}]
+allSettled_proto_json	json s:[{"status":"fulfilled","value":"p"}]
+allSettled_proto_pocshape	done
+allSettled_proto_str	str s:[object Object]
+allSettled_proto_then	[{status=s:fulfilled,value=s:p}]
+allSettled_proto_vals	[s:fulfilled,s:p]
+allSettled_sparse_alet	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_sparse_args	1:true:[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_sparse_avar	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_sparse_chain	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_sparse_forin	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_sparse_freeze	done [{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_sparse_json	json s:[{"status":"fulfilled"},{"status":"fulfilled"}]
+allSettled_sparse_pocshape	done
+allSettled_sparse_str	str s:[object Object],[object Object]
+allSettled_sparse_then	[{status=s:fulfilled,value=undefined},{status=s:fulfilled,value=undefined}]
+allSettled_sparse_vals	[s:fulfilled,undefined];[s:fulfilled,undefined]
+allSettled_str_alet	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_str_args	1:true:[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_str_avar	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_str_chain	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_str_forin	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_str_freeze	done [{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_str_json	json s:[{"status":"fulfilled","value":"a"},{"status":"fulfilled","value":"b"}]
+allSettled_str_pocshape	done
+allSettled_str_str	str s:[object Object],[object Object]
+allSettled_str_then	[{status=s:fulfilled,value=s:a},{status=s:fulfilled,value=s:b}]
+allSettled_str_vals	[s:fulfilled,s:a];[s:fulfilled,s:b]
+all_al1_alet	[undefined]
+all_al1_args	1:true:[undefined]
+all_al1_avar	[undefined]
+all_al1_chain	done [undefined]
+all_al1_forin	done [undefined]
+all_al1_freeze	done [undefined]
+all_al1_json	json s:[null]
+all_al1_pocshape	done
+all_al1_str	str s:
+all_al1_then	[undefined]
+all_al1_vals	undefined
+all_al2p_alet	[undefined,s:b]
+all_al2p_args	1:true:[undefined,s:b]
+all_al2p_avar	[undefined,s:b]
+all_al2p_chain	done [undefined,s:b]
+all_al2p_forin	done [undefined,s:b]
+all_al2p_freeze	done [undefined,s:b]
+all_al2p_json	json s:[null,"b"]
+all_al2p_pocshape	done
+all_al2p_str	str s:,b
+all_al2p_then	[undefined,s:b]
+all_al2p_vals	undefined;s:b
+all_al2q_alet	[s:a,undefined]
+all_al2q_args	1:true:[s:a,undefined]
+all_al2q_avar	[s:a,undefined]
+all_al2q_chain	done [s:a,undefined]
+all_al2q_forin	done [s:a,undefined]
+all_al2q_freeze	done [s:a,undefined]
+all_al2q_json	json s:["a",null]
+all_al2q_pocshape	done
+all_al2q_str	str s:a,
+all_al2q_then	[s:a,undefined]
+all_al2q_vals	s:a;undefined
+all_alfull_alet	[s:a,s:b]
+all_alfull_args	1:true:[s:a,s:b]
+all_alfull_avar	[s:a,s:b]
+all_alfull_chain	done [s:a,s:b]
+all_alfull_forin	done [s:a,s:b]
+all_alfull_freeze	done [s:a,s:b]
+all_alfull_json	json s:["a","b"]
+all_alfull_pocshape	done
+all_alfull_str	str s:a,b
+all_alfull_then	[s:a,s:b]
+all_alfull_vals	s:a;s:b
+all_big_forin	done len=1025 first=undefined last=undefined
+all_big_then	len=1025 first=undefined last=undefined
+all_dense_alet	[s:a,s:b]
+all_dense_args	1:true:[s:a,s:b]
+all_dense_avar	[s:a,s:b]
+all_dense_chain	done [s:a,s:b]
+all_dense_forin	done [s:a,s:b]
+all_dense_freeze	done [s:a,s:b]
+all_dense_json	json s:["a","b"]
+all_dense_pocshape	done
+all_dense_str	str s:a,b
+all_dense_then	[s:a,s:b]
+all_dense_vals	s:a;s:b
+all_empty_alet	[]
+all_empty_args	1:true:[]
+all_empty_avar	[]
+all_empty_chain	done []
+all_empty_forin	done []
+all_empty_freeze	done []
+all_empty_json	json s:[]
+all_empty_pocshape	done
+all_empty_str	str s:
+all_empty_then	[]
+all_empty_vals	
+all_fn3_alet	[undefined,undefined,undefined]
+all_fn3_args	1:true:[undefined,undefined,undefined]
+all_fn3_avar	[undefined,undefined,undefined]
+all_fn3_chain	done [undefined,undefined,undefined]
+all_fn3_forin	done [undefined,undefined,undefined]
+all_fn3_freeze	done [undefined,undefined,undefined]
+all_fn3_json	json s:[null,null,null]
+all_fn3_pocshape	done
+all_fn3_str	str s:,,
+all_fn3_then	[undefined,undefined,undefined]
+all_fn3_vals	undefined;undefined;undefined
+all_getter_alet	[s:g]
+all_getter_args	1:true:[s:g]
+all_getter_avar	[s:g]
+all_getter_chain	done [s:g]
+all_getter_forin	done [s:g]
+all_getter_freeze	done [s:g]
+all_getter_json	json s:["g"]
+all_getter_pocshape	done
+all_getter_str	str s:g
+all_getter_then	[s:g]
+all_getter_vals	s:g
+all_hole1_alet	[undefined]
+all_hole1_args	1:true:[undefined]
+all_hole1_avar	[undefined]
+all_hole1_chain	done [undefined]
+all_hole1_forin	done [undefined]
+all_hole1_freeze	done [undefined]
+all_hole1_json	json s:[null]
+all_hole1_pocshape	done
+all_hole1_str	str s:
+all_hole1_then	[undefined]
+all_hole1_vals	undefined
+all_holemid_alet	[n:1,undefined,n:3]
+all_holemid_args	1:true:[n:1,undefined,n:3]
+all_holemid_avar	[n:1,undefined,n:3]
+all_holemid_chain	done [n:1,undefined,n:3]
+all_holemid_forin	done [n:1,undefined,n:3]
+all_holemid_freeze	done [n:1,undefined,n:3]
+all_holemid_json	json s:[1,null,3]
+all_holemid_pocshape	done
+all_holemid_str	str s:1,,3
+all_holemid_then	[n:1,undefined,n:3]
+all_holemid_vals	n:1;undefined;n:3
+all_mixed_alet	[n:1,n:2,n:3]
+all_mixed_args	1:true:[n:1,n:2,n:3]
+all_mixed_avar	[n:1,n:2,n:3]
+all_mixed_chain	done [n:1,n:2,n:3]
+all_mixed_forin	done [n:1,n:2,n:3]
+all_mixed_freeze	done [n:1,n:2,n:3]
+all_mixed_json	json s:[1,2,3]
+all_mixed_pocshape	done
+all_mixed_str	str s:1,2,3
+all_mixed_then	[n:1,n:2,n:3]
+all_mixed_vals	n:1;n:2;n:3
+all_proto_alet	[s:p]
+all_proto_args	1:true:[s:p]
+all_proto_avar	[s:p]
+all_proto_chain	done [s:p]
+all_proto_forin	done [s:p]
+all_proto_freeze	done [s:p]
+all_proto_json	json s:["p"]
+all_proto_pocshape	done
+all_proto_str	str s:p
+all_proto_then	[s:p]
+all_proto_vals	s:p
+all_sparse_alet	[undefined,undefined]
+all_sparse_args	1:true:[undefined,undefined]
+all_sparse_avar	[undefined,undefined]
+all_sparse_chain	done [undefined,undefined]
+all_sparse_forin	done [undefined,undefined]
+all_sparse_freeze	done [undefined,undefined]
+all_sparse_json	json s:[null,null]
+all_sparse_pocshape	done
+all_sparse_str	str s:,
+all_sparse_then	[undefined,undefined]
+all_sparse_vals	undefined;undefined
+all_str_alet	[s:a,s:b]
+all_str_args	1:true:[s:a,s:b]
+all_str_avar	[s:a,s:b]
+all_str_chain	done [s:a,s:b]
+all_str_forin	done [s:a,s:b]
+all_str_freeze	done [s:a,s:b]
+all_str_json	json s:["a","b"]
+all_str_pocshape	done
+all_str_str	str s:a,b
+all_str_then	[s:a,s:b]
+all_str_vals	s:a;s:b
+any_al1_alet	undefined
+any_al1_args	1:true:undefined
+any_al1_avar	undefined
+any_al1_chain	done undefined
+any_al1_forin	done undefined
+any_al1_freeze	done undefined
+any_al1_json	json undefined
+any_al1_pocshape	done
+any_al1_str	str s:undefined
+any_al1_then	undefined
+any_al1_vals	undefined
+any_al2p_alet	undefined
+any_al2p_args	1:true:undefined
+any_al2p_avar	undefined
+any_al2p_chain	done undefined
+any_al2p_forin	done undefined
+any_al2p_freeze	done undefined
+any_al2p_json	json undefined
+any_al2p_pocshape	done
+any_al2p_str	str s:undefined
+any_al2p_then	undefined
+any_al2p_vals	undefined
+any_al2q_alet	s:a
+any_al2q_args	1:true:s:a
+any_al2q_avar	s:a
+any_al2q_chain	done s:a
+any_al2q_forin	done s:a
+any_al2q_freeze	done s:a
+any_al2q_json	json s:"a"
+any_al2q_pocshape	done
+any_al2q_str	str s:a
+any_al2q_then	s:a
+any_al2q_vals	s:a
+any_alfull_alet	s:a
+any_alfull_args	1:true:s:a
+any_alfull_avar	s:a
+any_alfull_chain	done s:a
+any_alfull_forin	done s:a
+any_alfull_freeze	done s:a
+any_alfull_json	json s:"a"
+any_alfull_pocshape	done
+any_alfull_str	str s:a
+any_alfull_then	s:a
+any_alfull_vals	s:a
+any_big_forin	done undefined
+any_big_then	undefined
+any_dense_alet	s:a
+any_dense_args	1:true:s:a
+any_dense_avar	s:a
+any_dense_chain	done s:a
+any_dense_forin	done s:a
+any_dense_freeze	done s:a
+any_dense_json	json s:"a"
+any_dense_pocshape	done
+any_dense_str	str s:a
+any_dense_then	s:a
+any_dense_vals	s:a
+any_fn3_alet	undefined
+any_fn3_args	1:true:undefined
+any_fn3_avar	undefined
+any_fn3_chain	done undefined
+any_fn3_forin	done undefined
+any_fn3_freeze	done undefined
+any_fn3_json	json undefined
+any_fn3_pocshape	done
+any_fn3_str	str s:undefined
+any_fn3_then	undefined
+any_fn3_vals	undefined
+any_getter_alet	s:g
+any_getter_args	1:true:s:g
+any_getter_avar	s:g
+any_getter_chain	done s:g
+any_getter_forin	done s:g
+any_getter_freeze	done s:g
+any_getter_json	json s:"g"
+any_getter_pocshape	done
+any_getter_str	str s:g
+any_getter_then	s:g
+any_getter_vals	s:g
+any_hole1_alet	undefined
+any_hole1_args	1:true:undefined
+any_hole1_avar	undefined
+any_hole1_chain	done undefined
+any_hole1_forin	done undefined
+any_hole1_freeze	done undefined
+any_hole1_json	json undefined
+any_hole1_pocshape	done
+any_hole1_str	str s:undefined
+any_hole1_then	undefined
+any_hole1_vals	undefined
+any_holemid_alet	n:1
+any_holemid_args	1:true:n:1
+any_holemid_avar	n:1
+any_holemid_chain	done n:1
+any_holemid_forin	done n:1
+any_holemid_freeze	done n:1
+any_holemid_json	json s:1
+any_holemid_pocshape	done
+any_holemid_str	str s:1
+any_holemid_then	n:1
+any_holemid_vals	n:1
+any_mixed_alet	n:1
+any_mixed_args	1:true:n:1
+any_mixed_avar	n:1
+any_mixed_chain	done n:1
+any_mixed_forin	done n:1
+any_mixed_freeze	done n:1
+any_mixed_json	json s:1
+any_mixed_pocshape	done
+any_mixed_str	str s:1
+any_mixed_then	n:1
+any_mixed_vals	n:1
+any_proto_alet	s:p
+any_proto_args	1:true:s:p
+any_proto_avar	s:p
+any_proto_chain	done s:p
+any_proto_forin	done s:p
+any_proto_freeze	done s:p
+any_proto_json	json s:"p"
+any_proto_pocshape	done
+any_proto_str	str s:p
+any_proto_then	s:p
+any_proto_vals	s:p
+any_sparse_alet	undefined
+any_sparse_args	1:true:undefined
+any_sparse_avar	undefined
+any_sparse_chain	done undefined
+any_sparse_forin	done undefined
+any_sparse_freeze	done undefined
+any_sparse_json	json undefined
+any_sparse_pocshape	done
+any_sparse_str	str s:undefined
+any_sparse_then	undefined
+any_sparse_vals	undefined
+any_str_alet	s:a
+any_str_args	1:true:s:a
+any_str_avar	s:a
+any_str_chain	done s:a
+any_str_forin	done s:a
+any_str_freeze	done s:a
+any_str_json	json s:"a"
+any_str_pocshape	done
+any_str_str	str s:a
+any_str_then	s:a
+any_str_vals	s:a
+ctl_forin	0|1
+race_al1_alet	undefined
+race_al1_args	1:true:undefined
+race_al1_avar	undefined
+race_al1_chain	done undefined
+race_al1_forin	done undefined
+race_al1_freeze	done undefined
+race_al1_json	json undefined
+race_al1_pocshape	done
+race_al1_str	str s:undefined
+race_al1_then	undefined
+race_al1_vals	undefined
+race_al2p_alet	undefined
+race_al2p_args	1:true:undefined
+race_al2p_avar	undefined
+race_al2p_chain	done undefined
+race_al2p_forin	done undefined
+race_al2p_freeze	done undefined
+race_al2p_json	json undefined
+race_al2p_pocshape	done
+race_al2p_str	str s:undefined
+race_al2p_then	undefined
+race_al2p_vals	undefined
+race_al2q_alet	s:a
+race_al2q_args	1:true:s:a
+race_al2q_avar	s:a
+race_al2q_chain	done s:a
+race_al2q_forin	done s:a
+race_al2q_freeze	done s:a
+race_al2q_json	json s:"a"
+race_al2q_pocshape	done
+race_al2q_str	str s:a
+race_al2q_then	s:a
+race_al2q_vals	s:a
+race_alfull_alet	s:a
+race_alfull_args	1:true:s:a
+race_alfull_avar	s:a
+race_alfull_chain	done s:a
+race_alfull_forin	done s:a
+race_alfull_freeze	done s:a
+race_alfull_json	json s:"a"
+race_alfull_pocshape	done
+race_alfull_str	str s:a
+race_alfull_then	s:a
+race_alfull_vals	s:a
+race_big_forin	done undefined
+race_big_then	undefined
+race_dense_alet	s:a
+race_dense_args	1:true:s:a
+race_dense_avar	s:a
+race_dense_chain	done s:a
+race_dense_forin	done s:a
+race_dense_freeze	done s:a
+race_dense_json	json s:"a"
+race_dense_pocshape	done
+race_dense_str	str s:a
+race_dense_then	s:a
+race_dense_vals	s:a
+race_empty_alet	
+race_empty_args	
+race_empty_avar	
+race_empty_chain	
+race_empty_forin	
+race_empty_freeze	
+race_empty_json	
+race_empty_pocshape	
+race_empty_str	
+race_empty_then	
+race_empty_vals	
+race_fn3_alet	undefined
+race_fn3_args	1:true:undefined
+race_fn3_avar	undefined
+race_fn3_chain	done undefined
+race_fn3_forin	done undefined
+race_fn3_freeze	done undefined
+race_fn3_json	json undefined
+race_fn3_pocshape	done
+race_fn3_str	str s:undefined
+race_fn3_then	undefined
+race_fn3_vals	undefined
+race_getter_alet	s:g
+race_getter_args	1:true:s:g
+race_getter_avar	s:g
+race_getter_chain	done s:g
+race_getter_forin	done s:g
+race_getter_freeze	done s:g
+race_getter_json	json s:"g"
+race_getter_pocshape	done
+race_getter_str	str s:g
+race_getter_then	s:g
+race_getter_vals	s:g
+race_hole1_alet	undefined
+race_hole1_args	1:true:undefined
+race_hole1_avar	undefined
+race_hole1_chain	done undefined
+race_hole1_forin	done undefined
+race_hole1_freeze	done undefined
+race_hole1_json	json undefined
+race_hole1_pocshape	done
+race_hole1_str	str s:undefined
+race_hole1_then	undefined
+race_hole1_vals	undefined
+race_holemid_alet	n:1
+race_holemid_args	1:true:n:1
+race_holemid_avar	n:1
+race_holemid_chain	done n:1
+race_holemid_forin	done n:1
+race_holemid_freeze	done n:1
+race_holemid_json	json s:1
+race_holemid_pocshape	done
+race_holemid_str	str s:1
+race_holemid_then	n:1
+race_holemid_vals	n:1
+race_mixed_alet	n:1
+race_mixed_args	1:true:n:1
+race_mixed_avar	n:1
+race_mixed_chain	done n:1
+race_mixed_forin	done n:1
+race_mixed_freeze	done n:1
+race_mixed_json	json s:1
+race_mixed_pocshape	done
+race_mixed_str	str s:1
+race_mixed_then	n:1
+race_mixed_vals	n:1
+race_proto_alet	s:p
+race_proto_args	1:true:s:p
+race_proto_avar	s:p
+race_proto_chain	done s:p
+race_proto_forin	done s:p
+race_proto_freeze	done s:p
+race_proto_json	json s:"p"
+race_proto_pocshape	done
+race_proto_str	str s:p
+race_proto_then	s:p
+race_proto_vals	s:p
+race_sparse_alet	undefined
+race_sparse_args	1:true:undefined
+race_sparse_avar	undefined
+race_sparse_chain	done undefined
+race_sparse_forin	done undefined
+race_sparse_freeze	done undefined
+race_sparse_json	json undefined
+race_sparse_pocshape	done
+race_sparse_str	str s:undefined
+race_sparse_then	undefined
+race_sparse_vals	undefined
+race_str_alet	s:a
+race_str_args	1:true:s:a
+race_str_avar	s:a
+race_str_chain	done s:a
+race_str_forin	done s:a
+race_str_freeze	done s:a
+race_str_json	json s:"a"
+race_str_pocshape	done
+race_str_str	str s:a
+race_str_then	s:a
+race_str_vals	s:a
+src_aggapply	done undefined
+src_apply	done undefined
+src_exec	done undefined
+src_find	done undefined
+src_iter	done undefined
+src_pop	done undefined

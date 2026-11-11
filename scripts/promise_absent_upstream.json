@@ -1,0 +1,135 @@
+{
+  "cve": "CVE-2022-32414",
+  "fix": "31ed93a5623f24ca94e6d47e895ba735d9d97d46",
+  "base": "f65981b0b8fcf02d69a40bc934803c25c9f607ab",
+  "since": "2022-03-01",
+  "files": [
+    "src/njs_promise.c",
+    "src/njs_vmcode.c",
+    "src/njs_iterator.c",
+    "src/njs_async.c",
+    "src/njs_value.h",
+    "external/njs_webcrypto_module.c"
+  ],
+  "commits": [
+    "31ed93a5623f24ca94e6d47e895ba735d9d97d46",
+    "982100ba56798dfc487ec9d792ce91916e14c5cc",
+    "e008f7ae22834ff1173b7a0067b14c821102018d"
+  ],
+  "issues": [
+    483,
+    538
+  ],
+  "functions": [
+    {
+      "name": "njs_promise_perform_all_handler",
+      "file": "src/njs_promise.c",
+      "checks": {
+        "invalid_to_undefined": "!njs_is_valid\\(value\\)",
+        "property_set": "njs_value_property_i64_set"
+      }
+    },
+    {
+      "name": "njs_promise_perform_all_settled_handler",
+      "file": "src/njs_promise.c",
+      "checks": {
+        "invalid_to_undefined": "!njs_is_valid\\(value\\)",
+        "property_set": "njs_value_property_i64_set"
+      }
+    },
+    {
+      "name": "njs_promise_perform_any_handler",
+      "file": "src/njs_promise.c",
+      "checks": {
+        "invalid_to_undefined": "!njs_is_valid\\(value\\)",
+        "property_set": "njs_value_property_i64_set"
+      }
+    },
+    {
+      "name": "njs_promise_perform_race_handler",
+      "file": "src/njs_promise.c",
+      "checks": {
+        "invalid_to_undefined": "!njs_is_valid\\(value\\)"
+      }
+    },
+    {
+      "name": "njs_promise_perform_all",
+      "file": "src/njs_promise.c",
+      "checks": {
+        "alloc_length": "njs_array_alloc\\(vm, 1, length, 0\\)",
+        "alloc_empty_spare": "njs_array_alloc\\(vm, 1, 0, NJS_ARRAY_SPARE\\)"
+      }
+    },
+    {
+      "name": "njs_vmcode_property_foreach",
+      "file": "src/njs_vmcode.c",
+      "checks": {
+        "data_tag": "NJS_DATA_TAG_FOREACH_NEXT",
+        "payload_only": "\\.data\\.u\\.next = next"
+      }
+    },
+    {
+      "name": "njs_iterator_to_array_handler",
+      "file": "src/njs_iterator.c",
+      "checks": {
+        "invalid_to_undefined": "njs_is_valid",
+        "property_set": "njs_value_property_i64_set"
+      }
+    },
+    {
+      "name": "njs_iterator_to_array",
+      "file": "src/njs_iterator.c",
+      "checks": {
+        "alloc_length": "njs_array_alloc\\(vm, 1, length, 0\\)"
+      }
+    },
+    {
+      "name": "njs_await_fulfilled",
+      "file": "src/njs_async.c",
+      "checks": {
+        "retval_from_value": "vm->retval = \\*value|njs_value_assign\\(&vm->retval, value\\)"
+      }
+    },
+    {
+      "name": "njs_key_usage_array_handler",
+      "file": "external/njs_webcrypto_module.c",
+      "checks": {
+        "invalid_check": "njs_is_valid"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Snjs_is_valid(value)",
+    "-SNJS_DATA_TAG_FOREACH_NEXT",
+    "-Svm->retval.data.u.next",
+    "-Snjs_iterator_to_array_handler",
+    "-Gnjs_value_invalid"
+  ],
+  "messages": [
+    "array-like",
+    "INVALID",
+    "absent",
+    "FOREACH",
+    "for-in",
+    "Promise\\.(all|race|any|allSettled)",
+    "aggregat",
+    "AggregateError",
+    "#483",
+    "#538",
+    "32414"
+  ],
+  "terms": {
+    "483": "#483|issues/483",
+    "538": "#538|issues/538",
+    "Promise.race": "Promise\\.race",
+    "Promise.all": "Promise\\.all\\b",
+    "allSettled": "allSettled",
+    "Promise.any": "Promise\\.any",
+    "AggregateError": "AggregateError",
+    "array-like": "array[- ]like",
+    "INVALID": "(?-i:\\bINVALID\\b)",
+    "PROPERTY_NEXT": "PROPERTY_NEXT|njs_vmcode\\.c:802",
+    "for-in": "for[- ]in\\b|for \\(.* in ",
+    "CVE-2022-32414": "32414"
+  }
+}
