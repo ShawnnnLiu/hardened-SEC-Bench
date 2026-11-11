@@ -1,0 +1,15 @@
+--- a/src/njs_vmcode.c
++++ b/src/njs_vmcode.c
+@@ -759,6 +759,12 @@
+                         goto error;
+                     }
+ 
++                    if (njs_slow_path(ret == NJS_ERROR)) {
++                        njs_stderror("STACK-INVARIANT method-frame key "
++                                     "conversion returns without unwinding\n");
++                        abort();
++                    }
++
+                     njs_key_string_get(vm, &dst, &string);
+                     njs_type_error(vm,
+                                "(intermediate value)[\"%V\"] is not a function",

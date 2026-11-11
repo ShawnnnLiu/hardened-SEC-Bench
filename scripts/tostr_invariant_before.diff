@@ -1,0 +1,14 @@
+diff --git a/src/njs_vmcode.c b/src/njs_vmcode.c
+index 3039642..82a77d5 100644
+--- a/src/njs_vmcode.c
++++ b/src/njs_vmcode.c
+@@ -756,6 +756,9 @@ next:
+                 if (njs_slow_path(!njs_is_function(&dst))) {
+                     ret = njs_value_to_key(vm, value2, value2);
+                     if (njs_slow_path(ret != NJS_OK)) {
++                        njs_stderror("STACK-INVARIANT method-frame key "
++                                     "conversion returns without unwinding\n");
++                        abort();
+                         return NJS_ERROR;
+                     }
+ 

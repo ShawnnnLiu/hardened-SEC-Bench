@@ -1,0 +1,26 @@
+# oracle node v20.9.0; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+ctl_goodkey_fn	caught:TypeError
+ctl_goodkey_fntry	caught:TypeError|c:QQ
+ctl_goodkey_rec2	d2:d1:caught:TypeError
+ctl_strkey_fn	caught:TypeError
+ctl_strkey_fntry	caught:TypeError|c:QQ
+ctl_strkey_rec2	d2:d1:caught:TypeError
+ctl_throwfirst_fn	caught:TypeError
+ctl_throwfirst_fntry	caught:TypeError|c:QQ
+ctl_throwfirst_rec2	d2:d1:caught:TypeError
+trig_selfmod_fn	caught:TypeError
+trig_selfmod_fntry	caught:TypeError|c:QQ
+trig_selfmod_loop2	caught:TypeError|caught:TypeError
+trig_selfmod_rec1	d1:caught:TypeError
+trig_selfmod_rec2	d2:d1:caught:TypeError
+trig_selfmod_rec3	d3:d2:d1:caught:TypeError
+trig_selfmod_top	caught:TypeError
+trig_unittest_fn	caught:TypeError
+trig_unittest_fntry	caught:TypeError|c:QQ
+trig_unittest_top	caught:TypeError
+valid_plain	after-call
+valid_try	caught:QQ
+valid_validcall_fn	ESCAPED
+valid_validcall_fntry	ESCAPED|c:QQ
+valid_validcall_rec2	d2:d1:ESCAPED

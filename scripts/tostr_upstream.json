@@ -1,0 +1,43 @@
+{
+  "cve": "CVE-2022-29369",
+  "fix": "222d6fdcf0c6485ec8e175f3a7b70d650c234b4e",
+  "base": "7bd570b39297d3d91902c93a624c89b08be7a6fe",
+  "since": "2022-01-01",
+  "files": [
+    "src/njs_vmcode.c",
+    "src/test/njs_unit_test.c"
+  ],
+  "commits": [
+    "222d6fdcf0c6485ec8e175f3a7b70d650c234b4e",
+    "d09868bc71f9a990445959329ad8c1b10d3898f5"
+  ],
+  "issues": [467],
+  "functions": [
+    {
+      "name": "njs_vmcode_interpreter",
+      "file": "src/njs_vmcode.c",
+      "checks": {
+        "method_frame_return": "if \\(njs_slow_path\\(!njs_is_function",
+        "method_frame_key_inplace": "njs_value_to_key\\(vm, value2, value2\\)",
+        "accessor_prop_define": "njs_object_prop_define\\(vm, value1"
+      }
+    }
+  ],
+  "pickaxe": [
+    "-Snjs_value_to_key(vm, value2, value2)",
+    "-Gnjs_vmcode_interpreter"
+  ],
+  "messages": [
+    "toString",
+    "unwind",
+    "exit points",
+    "prematurely",
+    "#467",
+    "29369"
+  ],
+  "terms": {
+    "467": "#467|issues/467",
+    "toString": "toString|to_key|conversion",
+    "CVE-2022-29369": "29369"
+  }
+}
