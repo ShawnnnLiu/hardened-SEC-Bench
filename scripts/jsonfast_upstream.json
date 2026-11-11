@@ -1,0 +1,16 @@
+{
+  "cve": "CVE-2020-24348",
+  "fix": "63aa001ebd7a386939851cf8b2c0332d718f5c23",
+  "base": "c3da13fb18f0d8ec809b346096feab572e634486",
+  "since": "2020-08-01",
+  "files": ["src/njs_json.c"],
+  "commits": ["63aa001ebd7a386939851cf8b2c0332d718f5c23", "e4e2a809f92d7da2f56b4c8f3c5c323e4d22f8b3"],
+  "issues": [322],
+  "functions": [
+    {"name": "njs_json_stringify_iterator", "file": "src/njs_json.c",
+     "checks": {"read_fast_guard": "njs_is_fast_array\\(&state->value\\)", "bound_captured_length": "state->index >= state->length", "bound_reread": "state->index >= njs_array_len\\(&state->value\\)"}}
+  ],
+  "pickaxe": ["-Gnjs_json_stringify_iterator", "-Snjs_is_fast_array"],
+  "messages": ["stringify", "fast array", "resizable", "getter", "use-after-free", "#322"],
+  "terms": {"322": "#322|issues/322", "stringify": "stringify", "resizable": "resizable", "CVE-2020-24348": "24348"}
+}

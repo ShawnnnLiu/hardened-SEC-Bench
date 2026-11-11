@@ -1,0 +1,14 @@
+diff --git a/src/njs_json.c b/src/njs_json.c
+--- a/src/njs_json.c
++++ b/src/njs_json.c
+@@ -1313,4 +1313,10 @@
+                 njs_chb_append_literal(&chain,",");
+                 njs_json_stringify_indent(stringify, &chain, 0);
++            }
++
++            if (!njs_is_fast_array(&state->value)) {
++                njs_stderror("JSONFAST-INVARIANT stringify read on a "
++                             "non-fast array\n");
++                abort();
+             }
+ 

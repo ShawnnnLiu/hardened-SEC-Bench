@@ -1,0 +1,4 @@
+case	ours:resid_before	ours:resid_after	ours:resid_master	ours:resid_root
+resid_grow	WRONG	WRONG	OK	OK
+resid_noresize	OK	OK	OK	OK
+resid_shrink	WRONG	WRONG	OK	OK

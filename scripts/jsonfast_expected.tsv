@@ -1,0 +1,12 @@
+# oracle node v20.9.0; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+conv_defprop	string:[0,"C",2,9]
+conv_getter	string:[0,{},2,9]
+conv_idx	string:[0,"C",2,3]
+conv_len	string:[0,"C",2,3]
+ctl_nested	string:[0,[1,2],{"x":3},3]
+ctl_plain	string:[0,1,2,3]
+ctl_tojson	string:[0,"C",2,3]
+keep_set0	string:[0,"C",2,3]
+keep_set2	string:[0,"C",9,3]
+pre_idx	number:199991
