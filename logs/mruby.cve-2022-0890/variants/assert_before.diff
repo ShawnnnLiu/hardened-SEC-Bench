@@ -1,0 +1,12 @@
+diff --git a/src/vm.c b/src/vm.c
+index 09f524a..0e6ea03 100644
+--- a/src/vm.c
++++ b/src/vm.c
+@@ -1925,6 +1925,7 @@ RETRY_TRY_BLOCK:
+ 
+       /* arguments is passed with Array */
+       if (argc == 15) {
++        if (mrb_type(regs[1]) != MRB_TT_ARRAY) { fprintf(stderr, "FIBERPACK-INVARIANT non-array at OP_ENTER argc==15\n"); mrb_raise(mrb, E_RUNTIME_ERROR, "FIBERPACK-INVARIANT non-array at OP_ENTER argc==15"); }
+         struct RArray *ary = mrb_ary_ptr(regs[1]);
+         argv = ARY_PTR(ary);
+         argc = (int)ARY_LEN(ary);

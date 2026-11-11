@@ -1,0 +1,33 @@
+# CRuby 2.7.0p0 reference values for scripts/fiberpack_cases.tsv (mruby.cve-2022-0890).
+# n2 (transfer) rows: CRuby 2.7 has no Fiber#transfer, so the expected value is the
+# n1 (resume) value for the same count; both reach the created-fiber start path. Oracle run 2026-11-07.
+n1_r00	0,nil
+n1_r01	1,1
+n1_r14	14,14
+n1_r15	15,15
+n1_r16	16,16
+n1_r17	17,17
+n1_r20	20,20
+n1_r30	30,30
+n1_r31	31,31
+n1_r32	32,32
+n1_r47	47,47
+n2_t14	14,14
+n2_t15	15,15
+n2_t16	16,16
+n2_t31	31,31
+n2_t32	32,32
+n3_two	1,2
+n3_rest	1,14,15
+n3_post	14,15
+n3_none	none
+n4_sp15	15,15
+n4_sp16	16,16
+n4_sp31	31,31
+n5_restart	Array:15
+n5_yield15	Array:15,15
+n5_enum	15,15
+n5_break	E:LocalJumpError
+n6_v2	2,2
+n6_v3	3,3
+poc	*
