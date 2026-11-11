@@ -1,0 +1,88 @@
+diff --git a/programs/escape.c b/programs/escape.c
+--- a/programs/escape.c
++++ b/programs/escape.c
+@@ -23,12 +23,41 @@
+ #include "common.h"
+ #include "escape.h"
+ 
++/* ESCAPE-TRACE (scripts/escape_trace.diff, instrumentation only): append one
++ * line per call to /tmp/escape_trace.log with the number of examined
++ * characters of each class and of buffer growths. Changes no result. */
++static void
++escape_trace (const char *func, int sp, int hi, int pl, int ct, int grow)
++{
++  FILE *f = fopen ("/tmp/escape_trace.log", "a");
++  if (!f)
++    return;
++  fprintf (f, "ESCAPE-TRACE %s in=%d special=%d high=%d plain=%d ctl=%d grow=%d\n",
++           func, sp + hi + pl + ct, sp, hi, pl, ct, grow);
++  fclose (f);
++}
++#define ESCAPE_COUNT(c, sp, hi, pl, ct)                                      \
++  do                                                                         \
++    {                                                                        \
++      if ((c) >= 127)                                                        \
++        hi++;                                                                \
++      else if ((c) == 34 || (c) == 39 || (c) == 38 || (c) == 60 || (c) == 62 \
++               || (c) == 96 || (c) == 123 || (c) == 125)                     \
++        sp++;                                                                \
++      else if ((c) >= 20)                                                    \
++        pl++;                                                                \
++      else                                                                   \
++        ct++;                                                                \
++    }                                                                        \
++  while (0)
++
+ char * ATTRIBUTE_MALLOC
+ htmlescape (const char *restrict src, const int cp)
+ {
+   int len;
+   char *dest, *d, *end;
+   unsigned char *s;
++  int nsp = 0, nhi = 0, npl = 0, nct = 0, ngrow = 0;
+   if (!src)
+     return NULL;
+   len = strlen (src) + 10;
+@@ -46,7 +75,9 @@
+           d = dest + off;
+           *d = 0;
+           end = dest + len;
++          ngrow++;
+         }
++      ESCAPE_COUNT (*s, nsp, nhi, npl, nct);
+       switch (*s)
+         {
+         case '"':
+@@ -97,6 +128,7 @@
+       s++;
+     }
+   *d = 0;
++  escape_trace ("htmlescape", nsp, nhi, npl, nct, ngrow);
+   return dest;
+ }
+ 
+@@ -107,6 +139,7 @@
+   char *dest, *d;
+   BITCODE_TU tmp = wstr;
+   BITCODE_RS c;
++  int nsp = 0, nhi = 0, npl = 0, nct = 0, ngrow = 0;
+ 
+   if (!wstr)
+     return NULL;
+@@ -123,7 +156,9 @@
+           len += 16;
+           dest = realloc (dest, len);
+           d = dest + off;
++          ngrow++;
+         }
++      ESCAPE_COUNT (*wstr, nsp, nhi, npl, nct);
+       switch (*wstr)
+         {
+         case 34: strcat (d, "&quot;"); d += 6; break;
+@@ -145,5 +180,6 @@
+         }
+     }
+   *d = 0;
++  escape_trace ("htmlwescape", nsp, nhi, npl, nct, ngrow);
+   return dest;
+ }
