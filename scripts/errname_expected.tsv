@@ -1,0 +1,18 @@
+# oracle node v20.9.0; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+ctl_msg_obj	
+ctl_name_str	
+ctl_plain	
+ctl_tostring	
+name_arr	
+name_err	
+name_fn	
+name_obj	
+name_tyerr	
+prim_bool	
+prim_num	
+render_name_obj	[object Object]
+render_name_str	X: m
+sib_arr_tostr	[object Number]
+sib_json_prim	5
+sib_json_tojson	7

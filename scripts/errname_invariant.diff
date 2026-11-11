@@ -1,0 +1,14 @@
+diff --git a/src/njs_object_prop.c b/src/njs_object_prop.c
+--- a/src/njs_object_prop.c
++++ b/src/njs_object_prop.c
+@@ -99,4 +99,10 @@
+     njs_object_prop_t  *prop;
+
++    if (!njs_is_object(value)) {
++        njs_stderror("ERRNAME-INVARIANT njs_object_property called with a "
++                     "non-object value (stale error pointer)\n");
++        abort();
++    }
++
+     object = njs_object(value);
+

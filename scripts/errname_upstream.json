@@ -1,0 +1,20 @@
+{
+  "cve": "CVE-2023-27730",
+  "fix": "9cec874582b925e373adb0896b85a112702f6664",
+  "base": "4c1e23326e1c30e4e051bf588bfc1aaa63954976",
+  "since": "2023-02-01",
+  "files": ["src/njs_error.c", "src/njs_object_prop.c", "src/njs_object.h", "src/njs_json.c", "src/njs_array.c", "src/njs_date.c", "src/njs_value.c"],
+  "commits": ["9cec874582b925e373adb0896b85a112702f6664", "8878d981fe3ab5af1a0f8e5c9b52a4ba58240d87"],
+  "issues": [615],
+  "functions": [
+    {"name": "njs_object_property", "file": "src/njs_object_prop.c",
+     "checks": {"object_param": "njs_object_t \\*object", "value_param": "const njs_value_t \\*value"}},
+    {"name": "njs_error_to_string2", "file": "src/njs_error.c",
+     "checks": {"error_object": "error_object = njs_object\\(error\\)", "assert_object": "njs_assert\\(njs_is_object\\(error\\)\\)"}},
+    {"name": "njs_error_to_string", "file": "src/njs_error.c",
+     "checks": {"guard": "!njs_is_object\\(error\\)"}}
+  ],
+  "pickaxe": ["-Snjs_object_t *object", "-Serror_object = njs_object"],
+  "messages": ["Error", "name", "not primitive", "dumping", "#615"],
+  "terms": {"615": "#615|issues/615", "CVE-2023-27730": "27730", "name not primitive": "name.{0,30}primitive"}
+}
