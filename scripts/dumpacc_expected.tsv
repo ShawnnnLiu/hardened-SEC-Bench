@@ -1,0 +1,13 @@
+# oracle node v20.9.0; runner njs_cases.py sha256 1109b89d687f34683a75c978b4418aee12ed2fc9268222461329377ed8b3431e
+case	output
+ctl_data	
+ctl_idx_get	
+ctl_obj_get	
+ctl_plain	
+ctl_slow_get	
+fa_get	
+fa_getobj	
+fa_getset	
+fa_set	
+fab_elems	
+fab_nonenum	

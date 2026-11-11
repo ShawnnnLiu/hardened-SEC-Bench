@@ -1,0 +1,17 @@
+diff --git a/src/njs_json.c b/src/njs_json.c
+index 0b7d1cb8..030b31c0 100644
+--- a/src/njs_json.c
++++ b/src/njs_json.c
+@@ -2110,6 +2110,12 @@ njs_vm_value_dump(njs_vm_t *vm, njs_str_t *retval, njs_value_t *value,
+             }
+         }
+ 
++        if (njs_is_accessor_descriptor(prop) && val == njs_prop_value(prop)) {
++            njs_stderror("DUMPACC-INVARIANT dump reached an accessor property "
++                         "whose value was not replaced by a marker\n");
++            abort();
++        }
++
+         if (njs_dump_is_recursive(val)) {
+             if (njs_slow_path(njs_dump_visited(vm, stringify, val))) {
+                 njs_chb_append_literal(&chain, "[Circular]");

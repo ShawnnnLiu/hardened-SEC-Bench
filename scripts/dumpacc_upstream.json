@@ -1,0 +1,16 @@
+{
+  "cve": "CVE-2023-27728",
+  "fix": "1f54b79cabd1d112624ebba4d0a5f07cb3f70e95",
+  "base": "4c1e23326e1c30e4e051bf588bfc1aaa63954976",
+  "since": "2023-02-01",
+  "files": ["src/njs_json.c"],
+  "commits": ["1f54b79cabd1d112624ebba4d0a5f07cb3f70e95", "9cec874582b925e373adb0896b85a112702f6664"],
+  "issues": [618, 615],
+  "functions": [
+    {"name": "njs_vm_value_dump", "file": "src/njs_json.c",
+     "checks": {"fast_array_gate": "if \\(!state->fast_array\\)", "accessor_substitution": "njs_is_accessor_descriptor\\(prop\\)", "handler_substitution": "NJS_PROPERTY_HANDLER"}}
+  ],
+  "pickaxe": ["-Sstate->fast_array", "-Gnjs_is_accessor_descriptor"],
+  "messages": ["dump", "getter", "accessor", "fast array", "#618"],
+  "terms": {"618": "#618|issues/618", "CVE-2023-27728": "27728", "getter dump": "[Gg]etter.{0,40}dump|dump.{0,40}[Gg]etter"}
+}
